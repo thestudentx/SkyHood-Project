@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Sky Map</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    #controls {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <label for="time">Time:</label>
+    <input type="datetime-local" id="time" value="2023-10-01T20:00">
+    <button onclick="updateSky()">Update</button>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script>
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Add stars
+    const starGeometry = new THREE.BufferGeometry();
+    const starVertices = [];
+    const starColors = [];
+
+    // Load star data (simplified)
+    const stars = [
+      { ra: 0, dec: 0, mag: 1 }, // Example star data (RA, Dec, Magnitude)
+      { ra: 1, dec: 1, mag: 2 },
+      { ra: 2, dec: 2, mag: 3 },
+    ];
+
+    stars.forEach(star => {
+      const theta = (star.ra / 180) * Math.PI; // Convert RA to radians
+      const phi = (star.dec / 180) * Math.PI; // Convert Dec to radians
+      const radius = 500; // Fixed radius for the celestial sphere
+      const x = radius * Math.cos(phi) * Math.cos(theta);
+      const y = radius * Math.cos(phi) * Math.sin(theta);
+      const z = radius * Math.sin(phi);
+      starVertices.push(x, y, z);
+
+      // Star color based on magnitude
+      const brightness = 1 - star.mag / 10;
+      starColors.push(brightness, brightness, brightness);
+    });
+
+    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+    starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
+    const starMaterial = new THREE.PointsMaterial({ size: 2, vertexColors: true });
+    const starField = new THREE.Points(starGeometry, starMaterial);
+    scene.add(starField);
+
+    // Add constellation lines
+    const constellations = [
+      { start: [0, 0], end: [1, 1] }, // Example constellation lines
+      { start: [1, 1], end: [2, 2] },
+    ];
+
+    constellations.forEach(constellation => {
+      const points = [
+        new THREE.Vector3(...constellation.start, 500),
+        new THREE.Vector3(...constellation.end, 500),
+      ];
+      const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+      const lineMaterial = new THREE.LineBasicMaterial({ color: 0x00ff00 });
+      const line = new THREE.Line(lineGeometry, lineMaterial);
+      scene.add(line);
+    });
+
+    // Camera position
+    camera.position.z = 5;
+
+    // Time control
+    let currentTime = moment(document.getElementById('time').value);
+
+    function updateSky() {
+      currentTime = moment(document.getElementById('time').value);
+      console.log("Updated time to:", currentTime.format("YYYY-MM-DD HH:mm:ss"));
+      // Add logic to update star positions based on time
+    }
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      starField.rotation.y += 0.001; // Slow rotation
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

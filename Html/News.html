@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        News | SkyHood
+    </title>
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <link rel="stylesheet" href="../CSS/News.css">
+    <script src="../JS/script.js"></script>
+    </head>
+    <body>
+
+        <!-- HEADER -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html"> Home </a></li>
+                <li><a href="Star_Map.html">Star Map</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="#">About   </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SEARCH -->
+     <div>
+        <input type="text" id="search" placeholder="Search a star, planet or constellation..." onkeyup="searchFunction()">
+            <div>
+                <ul id="Star_list">
+                    <li>Sirius </li>
+                    <li>Betelgeuse </li>
+                    <li>Vega </li>
+                    <li>Polaris </li>
+                    <li>Jupiter </li>
+                    <li>Mars </li>
+                    <li>Neptune </li>
+                    <li>Orion </li>
+                    <li>Ursa Major </li>
+                    <li>Lynx</li>
+                </ul>
+        </div>
+    </div>
+
+
+    <!-- TOGGLE BUTTON --><br><br>
+    <button onclick="toggleTheme()">Toggle Dark Mode</button>
+
+
+    <!-- NEWS CONTAINER -->
+    <section id="news">
+        <h2>Latest Astronomy News</h2>
+        <div id="News_container">
+
+        </div>
+    </section>\
+
+
+
+     <!-- NEWS -->
+     <section class="News_Section">
+        <div class="Stars"></div> <!-- Background animation -->
+        <div class="News_right_content">
+            <img src="../Img/Rocket_News_section.png" alt="Rocket" class="Rocket_News_section">
+        </div>
+        
+        <div class="News_left_content">
+            <div class="News_section">
+                    <h2 class="News_title">Cosmic Chronicles</h2>
+                    <p class="News_subtitle">Latest Discoveries & Space Updates</p>
+            </div>
+            <div class="News_article">
+                    <article class="News_card">
+                        <h3>Nasa Discovers a New Exoplanet</h3>
+                        <p>A potentially habitable planet has been found orbiting a distant star...</p>
+                        <a href="News.html" class="Read_more">Read More</a>
+                    </article>
+                    <article class="News_card">
+                        <h3>SpaceX's New Mars Mission</h3>
+                        <p>Elon Musk's vision for Mars colonization takes a leap forward...</p>
+                        <a href="News.html" class="Read_more">Read More</a>
+                    </article>
+                    <article class="News_card">
+                        <h3>James Webb Captures Stunning Nebula</h3>
+                        <p>The latest image from the James Webb Telescope reveals breathtaking details...</p>
+                        <a href="News.html" class="Read_more">Read More</a>
+                    </article>
+            </div>
+            <div>
+                    <a href="News.html" class="News_explore_btn">Go To News</a>
+            </div>
+        </div>  
+    </div>
+  </section>
+
+
+     
+     <!-- FOOTER -->
+    <footer>
+        <p>@ 2025 SkyHood. All Rights Reserved.</p>
+    </footer>
+        
+    </body>
+</html>

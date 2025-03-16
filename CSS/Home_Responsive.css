@@ -1,0 +1,211 @@
+@media (max-width: 768px) {
+    /* Hide normal nav */
+    .Nav_links {
+        display: none;
+    }
+
+
+    header {
+        display: flex;
+        position: fixed;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        height: 50px;
+    }
+
+    .Logo {
+        position: static;
+    }
+
+    .Logo a {
+        font-size: 15px;
+    }
+
+    .Search_box {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        height: 35px;
+        margin: 0 auto;
+        padding: 5px 10px;
+        background-color: rgba(255, 255, 255, 0.1); /* Slight transparency for a space-themed effect */
+        transition: transform 0.3s ease-in-out; /* Smooth movement */
+    }
+
+/* Push search box when sidebar opens (only for small screens) */
+.Search_box.Push_left {
+    width: 30%; /* Squeeze instead of moving fully */
+    transition: width 0.3s ease-in-out;
+}
+
+    nav ul {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        max-width: 100%;
+        text-align: center;
+        left: 0;
+        top: 50px;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .Menu_icon {
+        display: block;
+        position: absolute;
+        right: 7%;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        /* margin-top: 10px; */
+        font-size: 1.8em;
+        color: white;
+        z-index: 1000 ;
+    }
+
+    /* Show sidebar */
+    .Sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -250px;    /*  Initially hidden */
+        width: fit-content; /* Makes the width adjust automatically */
+        min-width: 35%; /* Ensures it doesn't shrink too much */
+        height: fit-content;
+        padding: 50px 20px;
+        background: linear-gradient(135deg, #0f172a, #1e293b); /* Dark blue gradient */
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+        transition: right 0.4s ease-in-out;
+    }
+
+    .Sidebar.Active {
+        right: 0;
+    }
+
+    .Sidebar.Active .Close_icon {
+        display: block;
+    }
+
+    .Toggle_theme_btn {
+        display: none;
+    }
+
+    .Toggle_theme_btn_sidebar {
+        position: relative;
+        bottom: 40px;
+        right: 25px;
+        font-size: 20px;  /* Increase icon size */
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: white;  /* Keep it visible */
+    }
+
+    .Right_items_sidebar img {
+        width: 25px;
+        height: 25px;
+    }
+    
+
+    .Sidebar ul {
+        list-style: none;
+        padding: 20px;
+        text-align: left;
+        margin: 0;
+    }
+    
+    .Sidebar ul li {
+        padding: 12px;
+        font-size: 18px;
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .Sidebar a {
+        display: block;
+        text-decoration: none;
+        padding: 10px 0;
+        font-size: 15px;
+        font-weight: bold;
+        color: white;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .Sidebar a:hover {
+        color: #38bdf8; /* Light blue hover effect */
+    }
+    
+    .Sidebar ul li:hover {
+        transform: translateX(5px);
+        color: #FFD700; /* Gold color on hover */
+    }
+    
+
+    .Close_icon {
+        font-size: 28px;
+        position: relative;
+        bottom: 87px;
+        left: 6px;
+        cursor: pointer;
+        color: white;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .Close_icon:hover {
+        transform: rotate(180deg); /* Smooth rotate animation */
+    }
+
+
+    /* *************************************************************************************************************************** */
+/* ******************************************************************************************************************************************** */
+/* HERO */
+
+    .Hero-content {
+        width: 80%;
+    }
+    .Hero h1 {
+        font-size: 1.5rem;
+    }
+
+/* NEWS */
+    .News_Section {
+        flex-direction: column;
+    }
+
+    .News_right_content {
+        width: 60%;
+    }
+
+    .News_left_content {
+        width: 80%;
+    }
+
+    .News_article {
+        flex-direction: column;
+    }
+
+
+/* ******************************************************************************************************************************************** */
+/* ******************************************************************************************************************************************** */
+/* LEARN */
+    .Learn_content {
+        max-width: 500px;
+    }
+
+
+}
+
+

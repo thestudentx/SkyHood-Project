@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        SkyHood: Explore Infinity And Beyond
+    </title>
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <link rel="stylesheet" href="../CSS/News.css">
+    <link rel="stylesheet" href="../CSS/Home_Responsive.css">
+    <script src="../JS/script.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Oxanium:wght@400;700&family=Syncopate:wght@400;700&family=Exo+2:wght@400;700&family=Teko:wght@400;700&family=Rajdhani:wght@400;700&family=Audiowide&family=Quantico:wght@400;700&family=Zen+Dots&family=Big+Shoulders+Stencil+Text:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Family -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Dropdown Icon >> Pages -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Footer >> Icons -->
+
+</head>
+<body>
+
+
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+    <!-- HEADER -->
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+
+
+    <header>
+
+        <!-- Space Animation -->
+        <div class="Header_space_objects"></div> 
+
+        <!-- Logo -->
+        <div class="Logo">
+            <a href="Home.html"><span class="Logo_sky">Sky</span><span class="Logo_hood">Hood</span></a>
+        </div>     
+
+        <!-- Normal navigation (Visible above 768px) -->
+        <nav  class="Nav_links">
+            <ul>
+                <li><a href="Home.html"> Home </a></li>
+                <li><a href="Explore.html">Explore</a></li>
+                <li><a href="Learn.html">Learn</a></li>
+                <li class="Pages">
+                    <a href="#">Pages <span class="Dropdown_icon"><i class="fa fa-caret-down"></i></span></a>
+                    <ul class="Dropdown">
+                        <li><a href="News.html">News</a></li>
+                        <li><a href="Space_gear.html">Space Gear</a></li>
+                        <li><a href="Space_community.html">Space Community</a></li>
+                        <li><a href="About_us.html">About Us</a></li>
+                        <li><a href="Contact_us.html">Contact Us</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        
+
+        <!-- Toggle Dark/Light -->
+         <div class="Right_items">
+
+            <div class="Header_login_btn">
+                <a href="#" class="SignupLogin_btn">Login</a>
+            </div>
+
+            <!-- <button class="Toggle_theme_btn" onclick="toggleTheme()">
+                <img src="../Img/day-and-night.png">
+            </button> -->
+
+            <!-- Search Box -->
+            <div class="Search_box">
+                <input type="text" id="Search_box" class="Search_box" name="searchQuery" autocomplete="on" autofocus aria-label="Search" placeholder="Search the cosmos...">
+                <button onclick="performSearch()">🔭</button>
+            </div>
+        </div>
+
+        <!-- ****************************************************************** -->
+        <!-- Hamburger menu icon (☰) (Visible below 768px) -->
+        <!-- <div class="Menu_icon">☰</div> -->
+
+        <!-- Sidebar menu (Visible below 768px) -->
+        <!-- <div class="Sidebar">
+            <div class="Right_items_sidebar">
+                <button class="Toggle_theme_btn_sidebar" onclick="toggleTheme()">
+                    <img src="../Img/day-and-night.png"></button>
+            <span class="Close_icon">✖</span>
+                <ul>
+                    <li><a href="Home.html"> Home </a></li>
+                    <li><a href="Explore.html">Explore</a></li>
+                    <li><a href="News.html">News</a></li>
+                    <li><a href="#">Learn</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+        </div> -->
+    </header>
+
+
+
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+    <!-- HERO -->
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+
+
+     <section class="Hero">
+        <video autoplay muted loop class="bg_video">
+            <source src="../Videos/Astronomy_bg.mp4" type="video/mp4">
+        </video>
+
+        <div class="Hero-content">
+            <h1>Explore Infinity & Beyond</h1>
+            <p>Navigate the cosmos on our interactive star map—discover stars, constellations, planets, comets, and asteroids like never before. The universe awaits your exploration!</p>
+            <a href="Explore.html" class="Hero-content_btn">Explore with us!</a>
+        </div>
+     </section>
+
+
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+        <!-- NEWS -->
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+
+
+        <section class="News_section">
+            <div class="Stars"></div> <!-- Background animation -->
+
+            <!-- Title & Subtitle -->
+            <div class="News_title_subtitle">
+                <h2 class="News_title">Cosmic Chronicles</h2>
+                <p class="News_subtitle">Latest Discoveries & Space Updates</p>
+            </div>
+
+
+            <!-- News Slider -->
+             <div class="News_slider">
+                <!-- News Articles -->
+                <div class="News_article_section">
+                    <!-- Left Article -->
+                    <div class="News_cards">
+                        <!-- Left Article Img -->
+                        <div class="News_cards_img">
+                            <img src="../Img/Exoplanet2.jpg" alt="Exoplanet">
+                            <h5>25 Feb</h5>
+                        </div>
+                        <!-- Blog -->
+                        <div class="News_article_blog">
+                            <h1>Nasa Discovers a New Exoplanet</h1>
+                            <p>A potentially habitable planet has been found orbiting a distant star. A potentially habitable planet has been found orbiting a distant star...</p>
+                            <a href="News.html">read more</a>
+                        </div>
+                    </div>
+
+                    <!-- Middle Article -->
+                    <div class="News_cards">
+                        <!-- Middle Article Img -->
+                        <div class="News_cards_img">
+                            <img src="../Img/News_section_MarsMission.jpg" alt="Mars Mission">
+                            <h5>25 Feb</h5>
+                        </div>
+                        <!-- Blog -->
+                        <div class="News_article_blog">
+                            <h1>SpaceX's New Mars Mission</h1>
+                            <p>Elon Musk's vision for Mars colonization takes a leap forward. Elon Musk's vision for Mars colonization takes a leap forward...</p>
+                            <a href="News.html ">read more</a>
+                        </div>
+                    </div>
+
+                    <!-- Right Article -->
+                    <div class="News_cards">
+                        <!-- Right Article Img -->
+                        <div class="News_cards_img">
+                            <img src="../Img/News_section_Nebula.jpg" alt="Nebula">
+                            <h5>25 Feb</h5>
+                        </div>
+                        <!-- Blog -->
+                        <div class="News_article_blog">
+                            <h1>James Webb Captures Stunning Nebula</h1>
+                            <p>The latest image from the James Webb Telescope reveals breathtaking details. The latest image from the James Webb Telescope reveals breathtaking details...</p>
+                            <a href="News.html ">read more</a>
+                        </div>
+                    </div>
+
+
+
+                </div>  <!-- News_article_section -->
+            </div>   <!-- News_slider -->
+            <div>
+                <a href="News.html" class="News_explore_btn">Go To News</a>
+            </div>
+        </section>
+                
+           
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+    <!-- LEARN SECTION -->
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+
+
+    <section class="Learn_section">
+        <div class="Learn_content">
+            <h2>Unlock the Mysteries of the Universe</h2>
+            <p>Ever wondered what makes a black hole so powerful? Or how planets are born? Dive deep into the cosmos and explore the wonders of space like never before.</p>
+            <ul>
+                <li>🔭 Discover fascinating facts about planets, stars, and galaxies.</li>
+                <li>🌌 Learn about black holes, nebulae, and the origins of the universe.</li>
+                <li>🛰️ Explore the latest space missions and scientific breakthroughs.</li>
+            </ul>    
+            <a href="Learn.html" class="Learn_content_btn">Start Learning</a>        
+        </div>
+    </section>
+
+
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+    <!-- Space Community -->
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+
+
+    <section class="Grow_section">
+        <h2 class="Grow_title">Space Community</h2>
+        <p class="Grow_subtitle">
+            Contribute your knowledge, explore career opportunities, dive into educational resources, and connect with fellow space enthusiasts through events and discussions.
+        </p>
+    
+        <div class="Grow_cards">
+            <!-- Publishing Card -->
+            <a href="#">
+                <div class="Grow_card">
+                    <div class="Grow_card_icon">🚀</div>
+                    <h3>Publishing</h3>
+                    <p>Share your passion for astronomy by writing articles, research findings, or space news. Help our community stay updated and inspired!</p>
+                </div>
+            </a>
+        
+            <!-- Career Card -->
+            <a href="#">
+                <div class="Grow_card">
+                    <div class="Grow_card_icon">🧑‍🚀</div>
+                    <h3>Career</h3>
+                    <p>Explore career paths, internships, and opportunities in the space industry. Take a leap toward your dream job among the stars!</p>
+                </div>
+            </a>
+        
+            <!-- Education Card -->
+            <a href="#">
+                <div class="Grow_card">
+                    <div class="Grow_card_icon">🎓</div>
+                    <h3>Education</h3>
+                    <p>Dive into curated articles, interactive tools, and resources. Learn the fundamentals of astronomy at your own pace.</p>
+                </div>
+            </a>
+        
+            <!-- Meeting Card -->
+            <a href="#">
+                <div class="Grow_card">
+                    <div class="Grow_card_icon">📅</div>
+                    <h3>Meetings & Events</h3>
+                    <p>Join virtual stargazing sessions, Q&A panels, and discussions on upcoming celestial events. Connect with fellow space enthusiasts!</p>
+                </div>
+            </a>
+        </div>
+        <div class="Grow_section_btn">
+            <a href="Our_services.html" class="Grow_section_btn">Start Contributing</a>
+        </div>
+    </section>
+
+
+
+
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+    <!-- ABOUT -->
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+
+
+    <section class="About_section">
+        <!-- <div class="About_image_bg">
+            <img src="../Img/Astronaut in Space.jpg" alt="About bg img">
+        </div> -->
+        <div class="About_container">
+                <div class="About_image">
+                    <img src="../Img/Astronaut_1.png" alt="Astronomy Exploration">
+                </div>
+            <div class="About_content">
+                <h2>Am I An Astronaut?</h2>
+                <p>You know, ever since I was a kid, I’ve been obsessed with the sky. Whether it was day or night, I’d just stand there, staring up, wondering—what’s happening out there in the vastness of space? 🌌
+                    I always...
+                    </p>
+                <a href="About_us.html" class="About_content_btn">read more</a>
+            </div>
+        </div>
+    </section>    
+
+
+
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+    <!-- Contact Us -->
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+
+
+    <!-- <section class="Contact_section">
+        <h2 class="Contact_heading">Contact Us</h2>
+        <p class="Contact_text">Have questions? Get in touch!</p>
+        <p class="Contact_subtext">
+            Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+        </p>
+
+        <div class="Contact_info">
+            <p><strong>📍 Address:</strong> 785 15h Street, Office 478 Berlin</p>
+            <p><strong>📞 Phone:</strong> +1 800 555 25 69</p>
+            <p><strong>📧 Email:</strong> info@email.com</p>
+        </div>
+
+        <form class="Contact_form">
+            <div class="Contact_input_group">
+                <input type="text" class="Contact_input" placeholder="Name" required>
+                <input type="email" class="Contact_input" placeholder="Email" required>
+            </div>
+            <div class="Contact_input_group">
+                <input type="text" class="Contact_input" placeholder="Phone">
+                <input type="text" class="Contact_input" placeholder="Subject">
+            </div>
+            <textarea class="Contact_textarea" placeholder="How can we help you?" required></textarea>
+            <button type="submit" class="Contact_btn">Send Message</button>
+        </form>
+    </section> -->
+
+    
+
+  
+
+    
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+    <!-- FOOTER -->
+<!-- ********************************************************************************* -->
+<!-- ********************************************************************************* -->
+
+
+    <footer class="Footer_section">
+        <p class="Footer_tagline">Explore Infinity & Beyond – The Universe is Yours.</p>
+        <div class="Footer_content">            
+            <div class="Footer_social">
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#"><i class="fas fa-store"></i> Our Store</a>
+            </div>
+            <ul class="Footer_links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Learn</a></li>
+                <li><a href="#">Space Gear</a></li>
+            </ul>
+            <div class="Footer_contact">
+                <h4>Get In Touch</h4>
+                <p><i class="fa-solid fa-location-dot"></i>  2443 Oak Ridge Omaha, QA 45065</p>
+                <p><i class="fa-solid fa-phone"></i>  207-8767-452 | 082-245-7253</p>
+                <p>📧 <a href="mailto:support@site.com">support@skyhood.com</a></p>
+            </div>
+        </div>
+        <div class="Footer_bottom">
+            <p>Copyright © 2025 <span class="Footer_brand">SkyHood</span> | Made with ❤️ by Waris</p>
+        </div>      
+        <!-- Background Objects -->
+        <div class="Footer_space_objects"></div>  
+    </footer>
+
+
+    <!--  Scroll to top button -->
+    <button class="ScrollTop_btn">
+        <img src="../Img/vecteezy_rocket-spaceship-clipart-design-illustration_9342727.png" alt="Scroll to Top">
+    </button>    
+    
+        
+</body>
+</html>

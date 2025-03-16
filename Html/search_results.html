@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <link rel="stylesheet" href="../CSS/News.css">
+    <link rel="stylesheet" href="../CSS/Home_Responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Oxanium:wght@400;700&family=Syncopate:wght@400;700&family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+    <script src="../JS/script.js"></script>
+</head>
+<body>
+    <h2>Search Results for "<span id="queryText"></span>"</h2>
+    <ul id="resultsList"></ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let params = new URLSearchParams(window.location.search);
+            let query = params.get("q");
+            document.getElementById("queryText").innerText = query;
+
+            let pages = [
+                { title: "NASA Discovers a New Exoplanet", link: "news.html" },
+                { title: "SpaceX's New Mars Mission", link: "news.html" },
+                { title: "James Webb Captures Stunning Nebula", link: "news.html" },
+                { title: "Explore the Cosmos", link: "explore.html" }
+            ];
+
+            let resultsList = document.getElementById("resultsList");
+            let results = pages.filter(page => page.title.toLowerCase().includes(query.toLowerCase()));
+
+            if (results.length > 0) {
+                results.forEach(result => {
+                    let li = document.createElement("li");
+                    let a = document.createElement("a");
+                    a.href = result.link;
+                    a.innerText = result.title;
+                    li.appendChild(a);
+                    resultsList.appendChild(li);
+                });
+            } else {
+                resultsList.innerHTML = "<li>No results found.</li>";
+            }
+        });
+    </script>
+</body>
+</html>
