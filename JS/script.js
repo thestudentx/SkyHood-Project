@@ -1,3 +1,32 @@
+// server.js
+const express = require('express');
+const connectToDatabase = require('./db');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.json());
+
+// Example endpoint that uses the database connection
+app.get('/api/test', async (req, res) => {
+  try {
+    const db = await connectToDatabase();
+    // Use the db object for your operations, e.g., db.collection('yourCollection').find()
+    res.status(200).json({ message: 'Connected to MongoDB!' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error connecting to MongoDB', error });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+
+
+
+
+
+
 //  HEADER RESPONSIVENESS
 document.addEventListener("DOMContentLoaded", function () {
     let menuIcon = document.querySelector(".Menu_icon");
@@ -163,6 +192,49 @@ document.addEventListener("DOMContentLoaded", function () {
 //         event.preventDefault();
 //     }
 // });
+
+
+
+// ****************************************************************************************
+//  SUGGESTION BOX
+// ***************************************************************************************
+document.getElementById('Suggestion_form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+  
+    const formData = new FormData(e.target);
+    const suggestion = formData.get('suggestion');
+    const email = formData.get('email');
+    const submissionType = formData.get('submissionType');
+    
+    const data = {
+      suggestion,
+      email: submissionType === 'anonymous' ? null : email,
+      anonymous: submissionType === 'anonymous'
+    };
+  
+    try {
+      const res = await fetch('/api/suggestion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      if (res.ok) {
+        alert('Suggestion submitted successfully!');
+        e.target.reset();
+      } else {
+        alert(`Error: ${result.message}`);
+      }
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred while submitting your suggestion.');
+    }
+  });
+  
+
+
+
+
 
 
 //  Scroll to top button
