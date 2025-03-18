@@ -1,55 +1,73 @@
-// server.js
-const express = require('express');
-const connectToDatabase = require('./db');
-const app = express();
-const port = process.env.PORT || 3000;
+//  ***********************************************************************
+// Client side JavaScript
+// ***********************************************************************
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById('Suggestion_form');
+    if (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault(); // Prevent default submission
+  
+        const formData = new FormData(e.target);
+        const suggestion = formData.get('suggestion');
+        const email = formData.get('email');
+        const submissionType = formData.get('submissionType');
+  
+        const data = {
+          suggestion,
+          email: submissionType === 'anonymous' ? null : email,
+          anonymous: submissionType === 'anonymous'
+        };
+  
+        try {
+          const res = await fetch('/api/suggestion', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          const result = await res.json();
+          if (res.ok) {
+            alert('Suggestion submitted successfully!');
+            e.target.reset();
+          } else {
+            alert(`Error: ${result.message}`);
+          }
+        } catch (error) {
+          console.error(error);
+          alert('An error occurred while submitting your suggestion.');
+        }
+      });
+    } else {
+      console.error("Suggestion_form element not found.");
+    }
+  });
+  
 
-app.use(express.json());
-
-// Example endpoint that uses the database connection
-app.get('/api/test', async (req, res) => {
-  try {
-    const db = await connectToDatabase();
-    // Use the db object for your operations, e.g., db.collection('yourCollection').find()
-    res.status(200).json({ message: 'Connected to MongoDB!' });
-  } catch (error) {
-    res.status(500).json({ message: 'Error connecting to MongoDB', error });
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 
-
-
-
-
-
+// ******************************************************************************
 //  HEADER RESPONSIVENESS
-document.addEventListener("DOMContentLoaded", function () {
-    let menuIcon = document.querySelector(".Menu_icon");
-    let closeIcon = document.querySelector(".Close_icon");
-    let sidebar = document.querySelector(".Sidebar");
-    let searchBox = document.querySelector(".Search_box");
+// document.addEventListener("DOMContentLoaded", function () {
+//     let menuIcon = document.querySelector(".Menu_icon");
+//     let closeIcon = document.querySelector(".Close_icon");
+//     let sidebar = document.querySelector(".Sidebar");
+//     let searchBox = document.querySelector(".Search_box");
 
-    // Open sidebar when clicking the hamburger menu
-    menuIcon.addEventListener("click", function () {
-        sidebar.classList.add("Active");
-        menuIcon.style.display = "none"; // Hide hamburger menu
-        closeIcon.style.display = "block"; // Show close icon
-        searchBox.classList.add("Push_left"); // Reduce width
-    });
+//     // Open sidebar when clicking the hamburger menu
+//     menuIcon.addEventListener("click", function () {
+//         sidebar.classList.add("Active");
+//         menuIcon.style.display = "none"; // Hide hamburger menu
+//         closeIcon.style.display = "block"; // Show close icon
+//         searchBox.classList.add("Push_left"); // Reduce width
+//     });
 
-    // Close sidebar when clicking the close icon
-    closeIcon.addEventListener("click", function () {
-        sidebar.classList.remove("Active");
-        menuIcon.style.display = "block"; // Show hamburger menu
-        closeIcon.style.display = "none"; // Hide close icon
-        searchBox.classList.remove("Push_left"); // Restore width
-    });
-});
+//     // Close sidebar when clicking the close icon
+//     closeIcon.addEventListener("click", function () {
+//         sidebar.classList.remove("Active");
+//         menuIcon.style.display = "block"; // Show hamburger menu
+//         closeIcon.style.display = "none"; // Hide close icon
+//         searchBox.classList.remove("Push_left"); // Restore width
+//     });
+// });
 
 
 
@@ -198,38 +216,38 @@ document.addEventListener("DOMContentLoaded", function () {
 // ****************************************************************************************
 //  SUGGESTION BOX
 // ***************************************************************************************
-document.getElementById('Suggestion_form').addEventListener('submit', async function (e) {
-    e.preventDefault();
+// document.getElementById('Suggestion_form').addEventListener('submit', async function (e) {
+//     e.preventDefault();
   
-    const formData = new FormData(e.target);
-    const suggestion = formData.get('suggestion');
-    const email = formData.get('email');
-    const submissionType = formData.get('submissionType');
+//     const formData = new FormData(e.target);
+//     const suggestion = formData.get('suggestion');
+//     const email = formData.get('email');
+//     const submissionType = formData.get('submissionType');
     
-    const data = {
-      suggestion,
-      email: submissionType === 'anonymous' ? null : email,
-      anonymous: submissionType === 'anonymous'
-    };
+//     const data = {
+//       suggestion,
+//       email: submissionType === 'anonymous' ? null : email,
+//       anonymous: submissionType === 'anonymous'
+//     };
   
-    try {
-      const res = await fetch('/api/suggestion', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      const result = await res.json();
-      if (res.ok) {
-        alert('Suggestion submitted successfully!');
-        e.target.reset();
-      } else {
-        alert(`Error: ${result.message}`);
-      }
-    } catch (error) {
-      console.error(error);
-      alert('An error occurred while submitting your suggestion.');
-    }
-  });
+//     try {
+//       const res = await fetch('/api/suggestion', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify(data)
+//       });
+//       const result = await res.json();
+//       if (res.ok) {
+//         alert('Suggestion submitted successfully!');
+//         e.target.reset();
+//       } else {
+//         alert(`Error: ${result.message}`);
+//       }
+//     } catch (error) {
+//       console.error(error);
+//       alert('An error occurred while submitting your suggestion.');
+//     }
+//   });
   
 
 
@@ -332,10 +350,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const storyBtn = document.getElementById("storyBtn");
     const firstStory = document.getElementById("story1");
 
-    // Smooth scroll to first story
-    storyBtn.addEventListener("click", function() {
-        firstStory.scrollIntoView({ behavior: "smooth" });
-    });
+    if (storyBtn && firstStory) {
+      // Smooth scroll to first story
+      storyBtn.addEventListener("click", function() {
+          firstStory.scrollIntoView({ behavior: "smooth" });
+      });
+    } else {
+      console.error("storyBtn or firstStory element not found");
+    }
 
     // Reveal animations on scroll
     const stories = document.querySelectorAll(".Timeline_story");
@@ -354,4 +376,5 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll(); // Run on page load
 });
+
 
