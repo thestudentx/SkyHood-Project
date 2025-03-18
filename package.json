@@ -1,0 +1,12 @@
+{
+  "name": "skyhood-project",
+  "version": "1.0.0",
+  "description": "SkyHood: Explore Infinity & Beyond Like Never Before",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
