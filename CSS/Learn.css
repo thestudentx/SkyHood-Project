@@ -1,29 +1,22 @@
+/* Global reset if not already defined */
 * {
-    /* max-width: 100%; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-
-/* BODY */
-html body {
-    background-color: black;
-    font-family: 'Orbitron', 'Oxanium', 'Syncopate', 'Exo 2', 'Teko', 'Rajdhani', 'Audiowide', 'Quantico', 'Zen Dots', 'Big Shoulders Stencil Text', sans-serif;
-    /* background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
-    /* width: 100%; */
+  }
+  
+  /* Ensure the body doesn't overlap the fixed header */
+  html, body {
+    width: 100%;
     height: 100%;
-    margin: 0;
-    padding-top: 50px;
-    /* background-color: var(--bg-color); */
-    /* color: var(--text-color); */
+    background-color: #000;
+    font-family: 'Orbitron', 'Oxanium', 'Syncopate', 'Exo 2', 'Teko', 'Rajdhani', 'Audiowide', 'Quantico', 'Zen Dots', 'Big Shoulders Stencil Text', sans-serif;
     overflow-x: hidden;
     color: white;
-}
-
-.Explore_underdevelopment_section {
+  }
+  
+  /* Learn Underdevelopment Section */
+  .Learn_underdevelopment_section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,40 +25,45 @@ html body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-}
-
-.Explore_underdevelopment_section video {
+  }
+  
+  /* Background Video for Learn Page */
+  #Learn_bg_video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;  
-    z-index: -1;
-}
-
-/* Overlay content that animates from right to left */
-.Explore_underdevelopment {
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.5;
+  }
+  
+  /* Overlay Content for Learn Page */
+  .Learn_underdevelopment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    z-index: 2; /* Sits above the video */
+    height: 250px;
+    padding: 20px;
     color: #fff;
     text-align: center;
-    padding: 20px;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    z-index: 2; 
     background: rgb(26 13 14 / 45%);/* Light transparent background */
-    backdrop-filter: blur(0px); /* Apply blur to the background */
+    backdrop-filter: blur(10px); /* Apply blur to the background */
     -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
     border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for definition */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     /* The animation is applied to the box-shadow for the glowing effect */
     animation: glowingBorder 5s linear infinite;
-}
-
+  }
         /* Define keyframes for the glowing border animation */
 @keyframes glowingBorder {
     0% {
-        box-shadow: 0 0 10px #7c8558, 0 0 20px #492b12;
+        box-shadow: 0 0 10px #404A7A, 0 0 20px #F2FEFB;
     }
     20% {
         box-shadow: 0 0 10px #1b1614, 0 0 20px #354445;
@@ -74,28 +72,29 @@ html body {
         box-shadow: 0 0 10px #2E0812, 0 0 20px #2E0812;
     }
     60% {
-        box-shadow: 0 0 10px #3C387C, 0 0 20px #3C387C;
+        box-shadow: 0 0 10px #314C5A, 0 0 20px #3C387C;
     }
     80% {
         box-shadow: 0 0 10px #2A1636, 0 0 20px #2A1636;
     }
     100% {
-        box-shadow: 0 0 10px #7d681c, 0 0 20px #56341a;
+        box-shadow: 0 0 10px #53499C, 0 0 20px #56341a;
     }
   }
 
 
-.Explore_underdevelopment h1 {
-    font-family: 'Big Shoulders Stencil Text', sans-serif; /* For headings */
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    margin: 10px;
+  .Learn_underdevelopment h1 {
+    font-family: 'Big Shoulders Stencil Text', sans-serif;
+    font-size: 2rem;
+    text-align: center;
     color: #0ff;
-}
+    margin-bottom: 1rem;
+  }
 
-.Explore_underdevelopment p {
+.Learn_underdevelopment p {
     font-family: 'Exo 2', sans-serif;
     font-size: 18px;
-    margin: 10px;
     color: #ccc;
 }
+
+  
