@@ -278,6 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// ************************************************************************************
 //  Footer & Header Background Objects Animation
 document.addEventListener("DOMContentLoaded", function () {
     function createSpaceObjects(container, totalStars, totalPlanets) {
@@ -347,34 +348,75 @@ document.addEventListener("DOMContentLoaded", function () {
 //  ******************************************************************************
 //  ******************************************************************************
 document.addEventListener("DOMContentLoaded", function() {
-    const storyBtn = document.getElementById("storyBtn");
+    // Handle the hero section button
+    const heroBtn = document.getElementById("storyBtn");
     const firstStory = document.getElementById("story1");
-
-    if (storyBtn && firstStory) {
-      // Smooth scroll to first story
-      storyBtn.addEventListener("click", function() {
-          firstStory.scrollIntoView({ behavior: "smooth" });
+  
+    if (heroBtn && firstStory) {
+      heroBtn.addEventListener("click", function() {
+        firstStory.scrollIntoView({ behavior: "smooth" });
+        // After a brief delay, reveal the first story's content
+        setTimeout(() => {
+          firstStory.classList.add("active");
+        }, 600); // Adjust delay as needed
       });
     } else {
-      console.error("storyBtn or firstStory element not found");
+      console.error("Hero button or first story not found");
     }
-
-    // Reveal animations on scroll
+  
+    // Handle the "Next Story" buttons within each timeline story
+    const timelineStories = document.querySelectorAll(".Timeline_story");
+    
+    timelineStories.forEach((story, index) => {
+      // Only add a listener if there's a next story
+      if (index < timelineStories.length - 1) {
+        const nextBtn = story.querySelector("button.Hero_content_btn");
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function() {
+            const nextStory = timelineStories[index + 1];
+            nextStory.scrollIntoView({ behavior: "smooth" });
+            // After scrolling, add the "active" class to reveal the content
+            setTimeout(() => {
+              nextStory.classList.add("active");
+            }, 600); // Adjust delay as needed
+          });
+        }
+      }
+    });
+  
+    // Existing scroll reveal functionality
     const stories = document.querySelectorAll(".Timeline_story");
-
+  
     function revealOnScroll() {
-        stories.forEach(story => {
-            const storyTop = story.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (storyTop < windowHeight * 0.85) {
-                story.classList.add("active");
-            }
-        });
+      stories.forEach(story => {
+        const storyTop = story.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (storyTop < windowHeight * 0.85) {
+          story.classList.add("active");
+        }
+      });
     }
-
+  
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll(); // Run on page load
-});
+  });
+  
 
-
+// **********************************************************************************
+// MISSION & VISION 
+  document.addEventListener("DOMContentLoaded", function() {
+    const missionSection = document.querySelector(".Mission_section");
+    
+    function revealMission() {
+      const missionTop = missionSection.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (missionTop < windowHeight * 0.85) {
+        missionSection.querySelector(".Mission_content").classList.add("active");
+        window.removeEventListener("scroll", revealMission);
+      }
+    }
+    
+    window.addEventListener("scroll", revealMission);
+    revealMission(); // Check on page load
+  });
+  
