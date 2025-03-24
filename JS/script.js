@@ -45,29 +45,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ******************************************************************************
-//  HEADER RESPONSIVENESS
-// document.addEventListener("DOMContentLoaded", function () {
-//     let menuIcon = document.querySelector(".Menu_icon");
-//     let closeIcon = document.querySelector(".Close_icon");
-//     let sidebar = document.querySelector(".Sidebar");
-//     let searchBox = document.querySelector(".Search_box");
+document.addEventListener("DOMContentLoaded", function () {
+    let menuIcon = document.querySelector(".Menu_icon");
+    let closeIcon = document.querySelector(".Close_icon");
+    let sidebar = document.querySelector(".Sidebar");
+    let searchBox = document.querySelector(".Search_box");
 
-//     // Open sidebar when clicking the hamburger menu
-//     menuIcon.addEventListener("click", function () {
-//         sidebar.classList.add("Active");
-//         menuIcon.style.display = "none"; // Hide hamburger menu
-//         closeIcon.style.display = "block"; // Show close icon
-//         searchBox.classList.add("Push_left"); // Reduce width
-//     });
+    // Open sidebar when clicking the hamburger menu
+    menuIcon.addEventListener("click", function () {
+        sidebar.classList.add("Active");
+        menuIcon.style.display = "none"; // Hide hamburger menu
+        closeIcon.style.display = "block"; // Show close icon
+        searchBox.classList.add("Push_left"); // Reduce width
+    });
 
-//     // Close sidebar when clicking the close icon
-//     closeIcon.addEventListener("click", function () {
-//         sidebar.classList.remove("Active");
-//         menuIcon.style.display = "block"; // Show hamburger menu
-//         closeIcon.style.display = "none"; // Hide close icon
-//         searchBox.classList.remove("Push_left"); // Restore width
-//     });
-// });
+    // Close sidebar when clicking the close icon
+    closeIcon.addEventListener("click", function () {
+        sidebar.classList.remove("Active");
+        menuIcon.style.display = "block"; // Show hamburger menu
+        closeIcon.style.display = "none"; // Hide close icon
+        searchBox.classList.remove("Push_left"); // Restore width
+    });
+});
+
 
 
 
@@ -281,62 +281,38 @@ document.addEventListener("DOMContentLoaded", function () {
 // ************************************************************************************
 //  Footer & Header Background Objects Animation
 document.addEventListener("DOMContentLoaded", function () {
-    function createSpaceObjects(container, totalStars, totalPlanets) {
-        const colors = ["#0FFF", "#333", "#FBDC59", "#9EA2FF", "#2D2D66"];
+  function createSpaceObjects(container, totalStars) {
+      const colors = ["#0FFF", "#333", "#FBDC59", "#9EA2FF", "#2D2D66"];
 
-        function createStar() {
-            let obj = document.createElement("div");
-            obj.classList.add("space_object", "star");
+      function createStar() {
+          let obj = document.createElement("div");
+          obj.classList.add("space_object", "star");
 
-            let size = Math.random() * 6 + 4;
-            obj.style.width = `${size}px`;
-            obj.style.height = `${size}px`;
-            obj.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            obj.style.clipPath = "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)";
+          let size = Math.random() * 6 + 4;
+          obj.style.width = `${size}px`;
+          obj.style.height = `${size}px`;
+          obj.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          obj.style.clipPath = "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)";
 
-            obj.style.left = `${Math.random() * 100}%`;
-            obj.style.top = `${Math.random() * 100}%`;
+          obj.style.left = `${Math.random() * 100}%`;
+          obj.style.top = `${Math.random() * 100}%`;
 
-            obj.style.animationDuration = `${Math.random() * 20 + 15}s`;
-            obj.style.animationDelay = `${Math.random() * 5}s`;
+          obj.style.animationDuration = `${Math.random() * 20 + 15}s`;
+          obj.style.animationDelay = `${Math.random() * 5}s`;
 
-            obj.style.setProperty('--dirX', Math.random() > 0.5 ? 1 : -1);
-            obj.style.setProperty('--dirY', Math.random() > 0.5 ? 1 : -1);
+          obj.style.setProperty('--dirX', Math.random() > 0.5 ? 1 : -1);
+          obj.style.setProperty('--dirY', Math.random() > 0.5 ? 1 : -1);
 
-            container.appendChild(obj);
-        }
+          container.appendChild(obj);
+      }
 
-        function createPlanet() {
-            let obj = document.createElement("div");
-            obj.classList.add("space_object", "planet");
+      for (let i = 0; i < totalStars; i++) {
+          createStar();
+      }
+  }
 
-            let size = Math.random() * 6 + 3;
-            obj.style.width = `${size}px`;
-            obj.style.height = `${size}px`;
-            obj.style.borderRadius = "50%";
-            obj.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-
-            let randomX = Math.random() * 80 + 10;
-            let randomY = Math.random() * 50 + 20;
-            obj.style.left = `${randomX}%`;
-            obj.style.top = `${randomY}%`;
-
-            obj.style.animation = "planetPulse 3s infinite alternate ease-in-out";
-
-            container.appendChild(obj);
-        }
-
-        for (let i = 0; i < totalStars; i++) {
-            createStar();
-        }
-
-        for (let i = 0; i < totalPlanets; i++) {
-            createPlanet();
-        }
-    }
-
-    createSpaceObjects(document.querySelector(".Header_space_objects"), 50, 5); // Header: 50 Stars, 5 Planets
-    createSpaceObjects(document.querySelector(".Footer_space_objects"), 80, 10); // Footer: 80 Stars, 10 Planets
+  createSpaceObjects(document.querySelector(".Header_space_objects"), 50); // Header: 50 Stars
+  createSpaceObjects(document.querySelector(".Footer_space_objects"), 80); // Footer: 80 Stars
 });
 
 

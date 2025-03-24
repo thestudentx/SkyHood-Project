@@ -7,22 +7,88 @@
         News | SkyHood
     </title>
     <link rel="stylesheet" href="../CSS/Style.css">
+    <link rel="stylesheet" href="../CSS/Home_Responsive.css">
     <link rel="stylesheet" href="../CSS/News.css">
     <script src="../JS/script.js"></script>
     </head>
     <body>
 
-        <!-- HEADER -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="Home.html"> Home </a></li>
-                <li><a href="Star_Map.html">Star Map</a></li>
-                <li><a href="News.html">News</a></li>
-                <li><a href="#">About   </a></li>
-            </ul>
-        </nav>
-    </header>
+        <header>
+
+            <!-- Space Animation -->
+            <div class="Header_space_objects"></div> 
+        
+            <!-- Logo -->
+            <div class="Logo">
+                <a href="index.html"><span class="Logo_sky">Sky</span><span class="Logo_hood">Hood</span></a>
+            </div>     
+        
+            <!-- Normal navigation (Visible above 768px) -->
+            <nav class="Nav_links">
+                <ul>
+                    <li><a href="index.html"> Home </a></li>
+                    <li><a href="../Explore.html">Explore</a></li>
+                    <li><a href="Learn.html">Learn</a></li>
+                    <li class="Pages">
+                        <span class="Nav_links_pages">Pages <span class="Dropdown_icon_pages"><i class="fa fa-caret-down"></i></span></span>
+                        <ul class="Dropdown">
+                            <li><a href="News.html">News</a></li>
+                            <li><a href="Space_gear.html">Space Gear</a></li>
+                            <li><a href="Space_community.html">Space Community</a></li>
+                            <li><a href="About_us.html">About Us</a></li>
+                            <li><a href="Contact_us.html">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        
+            <div class="Right_items">
+                <div class="Header_login_btn">
+                    <a href="#" class="SignupLogin_btn">Login</a>
+                </div>
+        
+                <!-- Search Box -->
+                <div class="Search_box">
+                    <input type="text" id="Search_box" class="Search_box" name="searchQuery" autocomplete="on" autofocus aria-label="Search" placeholder="Search the cosmos...">
+                    <button onclick="performSearch()">🔭</button>
+                </div>
+            </div>
+        
+        
+        
+            <!-- ******************************************************************** -->
+             <!-- BELOW 768px CONTENT -->
+            <!-- Hamburger menu icon (☰) (Visible below 768px) -->
+            <div class="Menu_icon">☰</div>
+        
+            <!-- Sidebar menu (Visible below 768px) -->
+            <div class="Sidebar">
+                <div class="Right_items_sidebar">
+                    <span class="Close_icon">✖</span>
+                    <ul>
+                        <li><a href="index.html"> Home </a></li>
+                        <li><a href="Explore.html">Explore</a></li>
+                        <li><a href="Learn.html">Learn</a></li>
+                        <li class="Pages">
+                            <span class="Nav_links_pages">Pages <span class="Dropdown_icon_pages"><i class="fa fa-caret-down"></i></span></span>
+                            <ul class="Dropdown">
+                                <li><a href="News.html">News</a></li>
+                                <li><a href="Space_gear.html">Space Gear</a></li>
+                                <li><a href="Space_community.html">Space Community</a></li>
+                                <li><a href="About_us.html">About Us</a></li>
+                                <li><a href="Contact_us.html">Contact Us</a></li>
+                                <li>
+                                    <div class="Right_items_Header_login_btn">
+                                        <a href="#" class="SignupLogin_btn">Login</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        
+        </header>
 
     <!-- SEARCH -->
      <div>

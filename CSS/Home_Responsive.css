@@ -1,187 +1,298 @@
+/* ******************************************************************************** */
+/* ******************************************************************************** */
+/* BELOW 900px */
+/* ******************************************************************************** */
+/* ******************************************************************************** */
+@media (max-width: 900px) {
+
+/* ******************************************************************************** */
+/* HEADER */
+    .Logo a {
+        font-size: 1rem;
+    }
+
+    .Nav_links ul li a{
+        font-size: 0.8rem;
+    }
+
+    .Nav_links_pages {
+        font-size: 0.8rem;
+    }
+
+    .Header_login_btn a {
+        font-size: 1rem;
+    }
+
+    .Search_box input {
+        width: 100px;
+        height: 30px;
+        font-size: 9px;
+    }
+
+    .Search_box button {
+        margin-right: 5px;
+        font-size: 15px;
+    }
+
+
+/* ******************************************************************************** */
+/* HERO */
+    .Hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .Hero p {
+        font-size: 0.9rem;
+    }
+
+    .Hero-content_btn {
+        font-size: 0.8rem;
+    }
+
+/* ******************************************************************************** */
+/* LEARN */
+    .Learn_section::before {
+        width: 115%;
+        height: 115%;
+    }
+
+    .Learn_section h1 {
+        font-size: 2.5rem;
+    }
+
+    .Learn_section p {
+        font-size: 0.9rem;
+    }
+
+    .Learn_content li {
+        font-size: 0.9rem;
+    }
+
+    .Learn_content_btn {
+        font-size: 0.8rem;
+    }
+
+
+/* ******************************************************************************** */
+/* GROW */
+    .Grow_title {
+        font-size: 2.5rem;
+    }
+
+    .Grow_subtitle {
+        font-size: 1rem;
+    }
+
+    .Grow_section_btn a {
+        font-size: 0.8rem;
+    }
+
+/* ******************************************************************************** */
+/* GROW */
+    .About_content h1 {
+        font-size: 2.5rem;
+    }
+
+    .About_content p {
+        font-size: 0.9rem;
+    }
+
+    .About_content_btn {
+        font-size: 0.8rem;
+    }
+
+
+
+    
+/* ******************************************************************************** */
+/* 900px CLOSING */
+}
+
+
+
+/* ******************************************************************************** */
+/* ******************************************************************************** */
+/* BELOW 768px */
+/* ******************************************************************************** */
+/* ******************************************************************************** */
 @media (max-width: 768px) {
-    /* Hide normal nav */
+
+/* ******************************************************************************** */
+/* HEADER */
+    .Hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .Hero p {
+        font-size: 14px;
+    }
+
+    .Hero-content_btn {
+        font-size: 12px;
+    }
+
     .Nav_links {
         display: none;
     }
 
-
-    header {
-        display: flex;
-        position: fixed;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        height: 50px;
+    .Header_login_btn {
+        display: none;
     }
 
-    .Logo {
-        position: static;
-    }
-
-    .Logo a {
-        font-size: 15px;
+    .Right_items {
+        position: relative;
+        right: 60px;
     }
 
     .Search_box {
-        display: flex;
-        position: relative;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        max-width: 400px;
-        height: 35px;
-        margin: 0 auto;
-        padding: 5px 10px;
-        background-color: rgba(255, 255, 255, 0.1); /* Slight transparency for a space-themed effect */
-        transition: transform 0.3s ease-in-out; /* Smooth movement */
-    }
-
-/* Push search box when sidebar opens (only for small screens) */
-.Search_box.Push_left {
-    width: 30%; /* Squeeze instead of moving fully */
-    transition: width 0.3s ease-in-out;
-}
-
-    nav ul {
-        display: none;
-        position: absolute;
-        flex-direction: column;
-        max-width: 100%;
-        text-align: center;
-        left: 0;
-        top: 50px;
-        background: rgba(0, 0, 0, 0.9);
-        padding: 10px 0;
-        transition: all 0.3s ease-in-out;
-    }
-
-    nav ul.active {
-        display: flex;
+        height: 30px;
     }
 
     .Menu_icon {
         display: block;
-        position: absolute;
-        right: 7%;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        /* margin-top: 10px; */
-        font-size: 1.8em;
-        color: white;
-        z-index: 1000 ;
     }
 
-    /* Show sidebar */
     .Sidebar {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        position: fixed;
-        top: 0;
-        right: -250px;    /*  Initially hidden */
-        width: fit-content; /* Makes the width adjust automatically */
-        min-width: 35%; /* Ensures it doesn't shrink too much */
-        height: fit-content;
-        padding: 50px 20px;
-        background: linear-gradient(135deg, #0f172a, #1e293b); /* Dark blue gradient */
-        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
-        transition: right 0.4s ease-in-out;
     }
 
-    .Sidebar.Active {
-        right: 0;
+    .Dropdown {
+        width: 200px;
     }
 
-    .Sidebar.Active .Close_icon {
-        display: block;
-    }
-
-    .Toggle_theme_btn {
-        display: none;
-    }
-
-    .Toggle_theme_btn_sidebar {
-        position: relative;
-        bottom: 40px;
-        right: 25px;
-        font-size: 20px;  /* Increase icon size */
-        cursor: pointer;
-        background: none;
-        border: none;
-        color: white;  /* Keep it visible */
-    }
-
-    .Right_items_sidebar img {
-        width: 25px;
-        height: 25px;
-    }
-    
-
-    .Sidebar ul {
-        list-style: none;
-        padding: 20px;
-        text-align: left;
-        margin: 0;
-    }
-    
-    .Sidebar ul li {
-        padding: 12px;
-        font-size: 18px;
-        color: white;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        cursor: pointer;
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .Sidebar a {
-        display: block;
-        text-decoration: none;
-        padding: 10px 0;
-        font-size: 15px;
-        font-weight: bold;
-        color: white;
-        transition: color 0.3s ease-in-out;
-    }
-
-    .Sidebar a:hover {
-        color: #38bdf8; /* Light blue hover effect */
-    }
-    
-    .Sidebar ul li:hover {
-        transform: translateX(5px);
-        color: #FFD700; /* Gold color on hover */
-    }
-    
-
-    .Close_icon {
-        font-size: 28px;
-        position: relative;
-        bottom: 87px;
-        left: 6px;
-        cursor: pointer;
-        color: white;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .Close_icon:hover {
-        transform: rotate(180deg); /* Smooth rotate animation */
-    }
-
-
-    /* *************************************************************************************************************************** */
-/* ******************************************************************************************************************************************** */
+/* ******************************************************************************** */
 /* HERO */
-
-    .Hero-content {
-        width: 80%;
-    }
     .Hero h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
+
+    .Hero p {
+        font-size: 0.8rem;
+    }
+
+    .Hero-content_btn {
+        font-size: 0.6rem;
+    }
+
+
+/* ******************************************************************************** */
+/* LEARN */
+
+    .Learn_section::before {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Learn_section h1 {
+        font-size: 2rem;
+    }
+
+    .Learn_section p {
+        font-size: 0.8rem;
+    }
+
+    .Learn_content li {
+        font-size: 0.8rem;
+    }
+
+    .Learn_content_btn {
+        font-size: 0.6rem;
+    }
+
+
+/* ******************************************************************************** */
+/* GROW */
+    .Grow_section_btn a {
+        font-size: 0.6rem;
+    }
+
+
+/* ******************************************************************************** */
+/* ABOUT */
+
+    .About_section {
+        height: 500px;
+    }
+
+    .About_image img {
+        margin-top: 0;
+    }
+
+    .About_content h1 {
+        font-size: 2rem;
+    }
+
+    .About_content p {
+        font-size: 0.8rem;
+    }
+
+    .About_content_btn {
+        font-size: 0.6rem;
+    }
+
+
+
+
+
+/* 768px CLOSING */
+}
+
+
+
+
+/* ******************************************************************************** */
+/* ******************************************************************************** */
+/* BELOW 480px */
+/* ******************************************************************************** */
+/* ******************************************************************************** */
+@media (max-width: 480px) {
+/* ******************************************************************************** */
+/* ABOUT */
+
+    .About_section {
+        height: 650px;
+    }
+    .About_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .About_image {
+        width: 80%;
+        margin-bottom: 0;
+    }
+
+    .About_content {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        margin: 0; 
+    }
+    .About_content p {
+        padding: 0;
+        margin-top: 10px;
+    }
+    
+
+
+
+/*  480px CLOSING */
+}
+
+
+
+
+
+
+
+/* ************************************************************************************** */
+/* ************************************************************************************** */
 
 /* NEWS */
-    .News_Section {
+    /* .News_Section {
         flex-direction: column;
     }
 
@@ -195,17 +306,16 @@
 
     .News_article {
         flex-direction: column;
-    }
+    } */
 
 
 /* ******************************************************************************************************************************************** */
 /* ******************************************************************************************************************************************** */
 /* LEARN */
-    .Learn_content {
+    /* .Learn_content {
         max-width: 500px;
-    }
+    } */
 
 
-}
 
 

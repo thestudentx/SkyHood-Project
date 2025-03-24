@@ -101,7 +101,7 @@ header  {
     display: inline-block;
     text-decoration: none;
     font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
+    font-size: 1.3rem;
     /* font-weight: bold; */
     /* color: #0ff; */
     transition: transform 0.3s ease color 0.3s ease;
@@ -119,7 +119,6 @@ header  {
     list-style: none;
     padding: 0 ;
     margin: auto;
-    gap: 15px;
 }
 
 .Nav_links ul li {
@@ -127,9 +126,10 @@ header  {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 10px 15px;
+    padding: 10px 8px;
 }
 
+/* Default Navigation Link Style */
 .Nav_links ul li a {
     display: inline-block;
     position: relative;
@@ -138,12 +138,13 @@ header  {
     font-size: 16px;
     padding: 8px 15px;
     color: white;
+    transition: 0.3s;
 }
 
-.Nav_links ul li a:hover {
+.Nav_links ul li a:hover,
+.Nav_links ul li a.active {  
     transform: scale(1.01);
     border: 0.1px solid #0ff;
-    transition: 0.3s ;
     border-radius: 5px;
     color: #0ff;
 }
@@ -229,41 +230,6 @@ header  {
     height: 25px;
 }
 
-/* Style the toggle button */
-.Toggle_theme_btn {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 22px; /* Increase icon size */
-    padding: 5px;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Positioning in the header */
-.Toggle_theme_btn {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Smooth hover effect */
-.Toggle_theme_btn:hover {
-    transform: scale(1.2); /* Slightly increase size on hover */
-}
-
-/* TOGGLE BUTTON */
-:root {
-    --bg-color: #fff;
-    --text-color: #000;
-}
-
-.dark-mode {
-    background-color: black;
-    color: white;
-}
-
 /* SEARCH BOX */
 .Search_box {
     display: flex;
@@ -281,7 +247,7 @@ header  {
     background: transparent;
     width: 150px;
     padding: 8px;
-    font-size: 15px;
+    font-size: 12px;
     color: white;
     border: none;
     outline: none;
@@ -300,7 +266,7 @@ header  {
     font-size: 20px;
 }
 
-#search {
+/* #search {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -316,78 +282,187 @@ header  {
     color: white;
     opacity: 0.8;
     font-style: italic;
-}
+} */
 
 
-/* Below 768px */
-.Menu_icon {
-    display: none;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    font-size: 2em;
-    cursor: pointer;
-    transform: translateY(-50%);
-    z-index: 1;
-}
 
-.Sidebar {
-    display: none;
-    opacity: 0;
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    top: 0;
-    right: -250px; /* Initially hidden */
-    padding-top: 20px;
-    background: rgba(0, 0, 0, 0.9);
-    transition: right 0.3s ease-in-out;
-}
 
-.Close_icon {
-    text-align: right;
-    padding: 10px;
-    margin-right: 15px;
-    font-size: 2em;
-    color: white;
-    cursor: pointer;
-}
 
-/* Navigation items inside sidebar */
-.Sidebar nav ul {
+
+
+.Sidebar ul {
+    display: flex    ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: left;
     list-style: none;
-    padding: 20px;
+    padding: 0;
+    margin: auto;
 }
 
-.Sidebar nav ul li {
-    padding: 10px 0;
+.Sidebar ul li {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    text-align: left;
+    position: relative;
+    padding: 10px 8px;
 }
 
-.Sidebar nav ul li a {
-    color: white;
+/* Default Navigation Link Style */
+.Sidebar ul li a {
+    display: inline-block;
+    position: relative;
     text-decoration: none;
-    font-size: 1.2em;
+    font-family: Orbitron, sans-serif;
+    font-size: 16px;
+    padding: 8px 15px;
+    color: white;
+    transition: 0.3s;
 }
 
-/* Sidebar opens */
-.Sidebar.Active {
-    right: 0;
+.Sidebar ul li a:hover {  
+    transform: scale(1.01);
+    border: 0.1px solid #0ff;
+    border-radius: 5px;
+    color: #0ff;
+}
+
+.Pages {
+    margin-left: 15px;
+}
+
+.Nav_links_pages {
+    color: white;
+    cursor: pointer;
+}
+
+.Right_items_Nav_links_pages {    
+    color: white;
+    cursor: pointer;
+}
+
+/* Style dropdown arrow icon */
+.Dropdown_icon_pages {
+    color: #0ff; 
+}
+
+.Dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    top: 100%;
+    left: 0;
+    background: #2D2D66;
+    backdrop-filter: blur(10px);
+    width: 200px; /* Adjust as needed */
+    padding: 10px 0;
+    border-radius: 5px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 90; 
+}
+
+
+.Dropdown li {
+    padding: 10px;
+    text-align: center;
+}
+
+.Dropdown li a {
+    color: white;
+    display: block;
+    padding: 5px 10px;
+}
+
+.Pages:hover .Dropdown {
     visibility: visible;
     opacity: 1;
 }
 
-/* Hide hamburger when sidebar is open */
-.Menu_icon.Hide {
+.Menu_icon {
     display: none;
+    position: absolute;
+    right: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8em;
+    color: white;
+    cursor: pointer;
+    z-index: 1000 ;
+}
+
+.Sidebar {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially hidden */
+    width: 300px;
+    height: fit-content;
+    background: #2D2D66; 
+    padding-top: 0px; /* Space for close button */
+    transition: right 0.4s ease-in-out;
+    z-index: 1000;
+}
+
+/* Active Sidebar (Open State) */
+.Sidebar.Active {
+    right: 0;
+    height: 700px;
+}
+
+.Right_items_Header_login_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 22px;
+    left: -10px;
+    margin-bottom: 45px;
+}
+
+.Right_items_Header_login_btn a {
+    display: inline-block;   /*  for transformation on hovering  */
+    text-decoration: none;
+    color: #FBDC59;
+    font-family: Orbitron, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    transition: transform 0.2s ease color 0.2s ease;
+}
+
+.Right_items_Header_login_btn a:hover {    
+    color: #ccb13b;
+    transform: scale(1.03);
+}
+
+/* Close Icon */
+.Close_icon {
+    font-size: 25px;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.Close_icon:hover {
+    transform: rotate(180deg); 
 }
 
 
-
-/* **************************************************************************************** */
-/* **************************************************************************************** */
+/* ***************************************************************************** */
+/* ***************************************************************************** */
 /* HERO */ 
-/* **************************************************************************************** */
-/* **************************************************************************************** */
+/* ***************************************************************************** */
+/* ***************************************************************************** */
 
 
 .Hero {
@@ -426,14 +501,13 @@ header  {
 .Hero h1 {
     font-family: 'Big Shoulders Stencil Text', sans-serif; /* For headings */
     text-transform: uppercase;
-    font-size: 70px;
+    font-size: 3rem;
     margin: 10px;
-    color: #0ff;
 }
 
 .Hero p {
     font-family: 'Exo 2', sans-serif;
-    font-size: 18px;
+    font-size: 1rem;
     margin: 10px;
     color: #ccc;
 }
@@ -442,7 +516,7 @@ header  {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 1rem;
     font-family: Orbitron, sans-serif;
     color: white;
     background: #2D2D66;
@@ -458,11 +532,11 @@ header  {
 
 
 
-/* ***************************************************************************************** */
-/* ***************************************************************************************** */
+/* ******************************************************************************** */
+/* ******************************************************************************** */
 /* NEWS */
-/* ***************************************************************************************** */
-/* ***************************************************************************************** */
+/* ******************************************************************************** */
+/* ******************************************************************************** */
 
 
 .News_section {
@@ -505,7 +579,6 @@ header  {
     font-family: 'Big Shoulders Stencil Text', sans-serif; /* For headings */
     font-size: 2rem;
     font-weight: bold;
-    color: #0ff;
 }
 
 .News_subtitle {
@@ -635,11 +708,11 @@ header  {
 
 
 
-/* **************************************************************************************** */
-/* **************************************************************************************** */
+/* ******************************************************************************** */
+/* ******************************************************************************** */
 /* Learn Ssection */
-/* **************************************************************************************** */
-/* **************************************************************************************** */
+/* ******************************************************************************** */
+/* ******************************************************************************** */
 
 
 .Learn_section {
@@ -672,26 +745,30 @@ header  {
 }
 
 .Learn_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 700px;
     padding: 50px 10px 10px 10px;
     z-index: 2;
 }
 
-.Learn_section h2 {
+.Learn_section h1 {
     font-family: 'Big Shoulders Stencil Text', sans-serif; /* For headings */
-    font-size: 40px;
+    font-size: 3rem;
     margin-bottom: 15px;
 }
 
 .Learn_section p {
     font-family: 'Exo 2', sans-serif;
-    font-size: 18px;
+    font-size: 1rem;
     margin-bottom: 20px;
     color: #ccc;
 }
 
 .Learn_section ul {
-    text-align: left;
+    text-align: center;
     display: inline-block;
     margin-bottom: 20px;
 }
@@ -700,7 +777,7 @@ header  {
     list-style: none;
     font-family: 'Exo 2', sans-serif;
     color: #ccc;
-    font-size: 18px;
+    font-size: 1rem;
     margin: 10px 0;
     opacity: 0;
     transform: translateY(20px);
@@ -723,7 +800,7 @@ header  {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 1rem;
     font-family: 'Orbitron', sans-serif;
     color: white;
     background: #2D2D66;
@@ -743,33 +820,63 @@ header  {
 
 
 
-/* **************************************************************************************** */
-/* **************************************************************************************** */
+/* ******************************************************************************** */
+/* ******************************************************************************** */
 /* Grow with us */
-/* **************************************************************************************** */
-/* **************************************************************************************** */
+/* ******************************************************************************** */
+/* ******************************************************************************** */
 
 
 .Grow_section {
     position: relative;
     padding: 80px 20px;
     text-align: center;
-    background: url('../Img/night-1920x1080.jpg'); /* A deep space color */
+    background: linear-gradient(to bottom, #000000, #112B57);
     color: #fff;
     overflow: hidden;
   }
+
+
+
+  /* Star Container */
+@keyframes glitter {
+    0% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.3; transform: scale(1); }
+}
+
+/* Star Shapes */
+.star {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    clip-path: polygon(50% 0%, 61% 38%, 100% 38%, 69% 62%, 80% 100%, 50% 75%, 20% 100%, 31% 62%, 0% 38%, 39% 38%);
+    opacity: 0.3;
+    animation: glitter 2s infinite ease-in-out alternate;
+}
+
+/* Random Star Placement */
+.star:nth-child(1) { top: 10%; left: 20%; animation-duration: 2s; }
+.star:nth-child(2) { top: 40%; left: 70%; animation-duration: 3s; }
+.star:nth-child(3) { top: 80%; left: 30%; animation-duration: 2.5s; }
+.star:nth-child(4) { top: 20%; left: 60%; animation-duration: 3.2s; }
+.star:nth-child(5) { top: 70%; left: 80%; animation-duration: 2.8s; }
+.star:nth-child(6) { top: 50%; left: 10%; animation-duration: 3.5s; }
+
+
   
   /* Title & Subtitle */
   .Grow_title {
     font-family: 'Big Shoulders Stencil Text', sans-serif; /* For headings */
-    font-size: 40px;
+    font-size: 3rem;
     margin-bottom: 10px;
     letter-spacing: 1px;
   }
   
   .Grow_subtitle {
     font-family: 'Exo 2', sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     max-width: 700px;
     margin: 0 auto 40px;
     color: #ccc;
@@ -828,8 +935,8 @@ header  {
 .Grow_section_btn a {
     display: inline-block;
     padding: 10px 20px;
-    margin-top: 10px;
-    font-size: 15px;
+    margin-top: 15px;
+    font-size: 1rem;
     font-family: 'Orbitron', sans-serif;
     color: white;
     background: #2D2D66;
@@ -849,11 +956,11 @@ header  {
 }
 
 
-/* **************************************************************************************** */
-/* **************************************************************************************** */
+/* ******************************************************************************* */
+/* ******************************************************************************* */
 /* About us */
-/* **************************************************************************************** */
-/* **************************************************************************************** */
+/* ******************************************************************************* */
+/* ******************************************************************************* */
 
 
 .About_section {
@@ -864,36 +971,38 @@ header  {
     text-align: center;
     width: 100%;
     height: 600px;
-    padding: 80px 0;
+    /* padding: 80px 0; */
     color: #fff;
-    background: black;
+    background: linear-gradient(to bottom, #112B57, #000000);
     overflow: hidden;
 }
 
-.About_image_bg {
+  /* Star Container */
+  @keyframes glitter {
+    0% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.3; transform: scale(1); }
+}
+
+/* Star Shapes */
+.star {
     position: absolute;
-    top: 0;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    animation: zoom 8s ease-in-out  infinite  alternate;
-    z-index: 1;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    clip-path: polygon(50% 0%, 61% 38%, 100% 38%, 69% 62%, 80% 100%, 50% 75%, 20% 100%, 31% 62%, 0% 38%, 39% 38%);
+    opacity: 0.3;
+    animation: glitter 2s infinite ease-in-out alternate;
 }
 
-.About_image_bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+/* Random Star Placement */
+.star:nth-child(1) { top: 10%; left: 20%; animation-duration: 2s; }
+.star:nth-child(2) { top: 40%; left: 70%; animation-duration: 3s; }
+.star:nth-child(3) { top: 80%; left: 30%; animation-duration: 2.5s; }
+.star:nth-child(4) { top: 20%; left: 60%; animation-duration: 3.2s; }
+.star:nth-child(5) { top: 70%; left: 80%; animation-duration: 2.8s; }
+.star:nth-child(6) { top: 50%; left: 10%; animation-duration: 3.5s; }
 
-@keyframes zoom {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.5);
-    }
-}
 
 .About_container {
     display: flex;
@@ -901,18 +1010,25 @@ header  {
     justify-content: center;
     text-align: left;
     position: relative;
-    max-width: 1100px;
+    width: 100%;
+    height: 100%;
     z-index: 2;
 }
 
 .About_image {
+    display: flex;
     flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
 }
 
 /* Image Styling */
 .About_image img {
     width: 100%;
     max-width: 400px;
+    margin-bottom: 30px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
     animation: moveBackForth 8s ease-in-out infinite;
@@ -926,23 +1042,28 @@ header  {
 
 /* Text Content */
 .About_content {
+    display: flex;
     flex: 1;
-    max-width: 550px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: left;
+    width: 50%;
     margin-right: 30px;
     z-index: 1;
 }
 
-.About_content h2 {
+.About_content h1 {
     font-family: 'Big Shoulders Stencil Text', sans-serif; /* For headings */
-    font-size: 40px;
+    font-size: 3rem;
     color: white;
 }
 
 .About_content p {
     font-family: 'Exo 2', sans-serif;
-    font-size: 18px;
+    font-size: 1rem;
+    padding: 0 30px 0 0;
     margin: 10px 10px 10px 0;
-    color: #ccc;
     line-height: 1.6;
 }
 
@@ -951,7 +1072,7 @@ header  {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 1rem;
     font-family: 'Orbitron', sans-serif;
     color: white;
     background: #2D2D66;
