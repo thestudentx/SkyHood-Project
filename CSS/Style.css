@@ -173,7 +173,7 @@ header  {
     opacity: 0;
     top: 100%;
     left: 0;
-    background: rgba(0, 0, 0, 0.8);
+    /* background: rgba(0, 0, 0, 0.8); */
     backdrop-filter: blur(10px);
     width: 200px; /* Adjust as needed */
     padding: 10px 0;
@@ -358,8 +358,8 @@ header  {
     opacity: 0;
     top: 100%;
     left: 0;
-    background: #2D2D66;
-    backdrop-filter: blur(10px);
+    background: black;
+    backdrop-filter: blur(5px);
     width: 200px; /* Adjust as needed */
     padding: 10px 0;
     border-radius: 5px;
@@ -405,7 +405,8 @@ header  {
     right: -100%; /* Initially hidden */
     width: 300px;
     height: fit-content;
-    background: #2D2D66; 
+    backdrop-filter: blur(5px);
+    background: black; 
     padding-top: 0px; /* Space for close button */
     transition: right 0.4s ease-in-out;
     z-index: 1000;

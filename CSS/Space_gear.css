@@ -1,0 +1,179 @@
+/* General Styles */
+.SpaceGear_container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Background Container */
+.SpaceGear_background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Pulsing Glow Effect */
+.SpaceGear_glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(10, 26, 65, 0.7) 10%, rgba(0, 0, 0, 0) 70%);
+    transform: translate(-50%, -50%);
+    animation: glowPulse 5s infinite alternate ease-in-out;
+}
+
+/* Glowing Effect Animation */
+@keyframes glowPulse {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.9;
+    }
+}
+
+/* Stars Layer */
+.SpaceGear_stars {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url('../Img/lake-wakatipu-aurora-borealis-new-zealand-glacier-mountains-3840x2400-4482.jpg') repeat;
+    animation: starsTwinkle 3s infinite alternate ease-in-out, starMovement 50s linear infinite;
+}
+
+/* Stars Twinkling Effect */
+@keyframes starsTwinkle {
+    from {
+        opacity: 0.7;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Moving Stars Effect */
+@keyframes starMovement {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10%);
+    }
+}
+
+
+/* Content Styling */
+.SpaceGear_content {
+    max-width: 800px;
+    padding: 20px;background: rgb(26 13 14 / 45%);/* Light transparent background */
+    backdrop-filter: blur(10px); /* Apply blur to the background */
+    -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for definition */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    /* The animation is applied to the box-shadow for the glowing effect */
+    animation: glowingBorder 5s linear infinite;
+}
+
+        /* Define keyframes for the glowing border animation */
+        @keyframes glowingBorder {
+            0% {
+                box-shadow: 0 0 10px #2F454A, 0 0 20px #3A4951;
+            }
+            20% {
+                box-shadow: 0 0 10px #1b1614, 0 0 20px #354445;
+            }
+            40% {
+                box-shadow: 0 0 10px #2E0812, 0 0 20px #2E0812;
+            }
+            60% {
+                box-shadow: 0 0 10px #314C5A, 0 0 20px #3C387C;
+            }
+            80% {
+                box-shadow: 0 0 10px #2A1636, 0 0 20px #2A1636;
+            }
+            100% {
+                box-shadow: 0 0 10px #53499C, 0 0 20px #2F454A;
+            }
+          }
+
+.SpaceGear_title {
+    font-size: 1.2rem;
+    color: #0ff;
+    font-family: 'Exo 2', sans-serif;
+    font-style: italic;
+    font-weight: lighter;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.SpaceGear_message {    
+    font-size: 1.25rem;
+    font-family: 'Oxanium', sans-serif;
+    margin-top: 20px;
+    color: white;
+    animation: slideIn 2s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Message Styling */
+.SpaceGear_message, .SpaceGear_message_secondary {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 1rem;
+    margin-top: 15px;
+    color: #ffffff;
+}
+
+/* Link Styling */
+.SpaceGear_message_secondary a {
+    color: #8ab6ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.SpaceGear_message_secondary a:hover {
+    color: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    SpaceGear_container {
+        width: 80%;
+    }
+    .SpaceGear_title {
+        font-size: 1.2rem;
+    }
+    .SpaceGear_message, .SpaceGear_message_secondary {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .SpaceGear_title {
+        font-size: 1rem;
+    }
+    .SpaceGear_message, .SpaceGear_message_secondary {
+        font-size: 0.9rem;
+    }
+}

@@ -6,7 +6,7 @@
         <title>Star Map - Under Development</title>
         <link rel="stylesheet" href="../CSS/Style.css">
         <link rel="stylesheet" href="../CSS/Home_Responsive.css">
-        <link rel="stylesheet" href="../CSS/Explore.css"
+        <link rel="stylesheet" href="../CSS/Explore.css">
         <script src="../JS/script.js"></script>
 
 
@@ -23,11 +23,11 @@
     <body>
         
 
-<!-- **************************************************************************** -->
-<!-- **************************************************************************** -->
+<!-- ***************************************************************************** -->
+<!-- ***************************************************************************** -->
     <!-- HEADER -->
-<!-- **************************************************************************** -->
-<!-- **************************************************************************** -->
+<!-- ***************************************************************************** -->
+<!-- ***************************************************************************** -->
 
 
 <header>
@@ -37,21 +37,21 @@
 
     <!-- Logo -->
     <div class="Logo">
-        <a href="Home.html"><span class="Logo_sky">Sky</span><span class="Logo_hood">Hood</span></a>
+        <a href="index.html"><span class="Logo_sky">Sky</span><span class="Logo_hood">Hood</span></a>
     </div>     
 
     <!-- Normal navigation (Visible above 768px) -->
-    <nav  class="Nav_links">
+    <nav class="Nav_links">
         <ul>
             <li><a href="index.html"> Home </a></li>
             <li><a href="Explore.html">Explore</a></li>
             <li><a href="Learn.html">Learn</a></li>
             <li class="Pages">
-                <a href="#">Pages <span class="Dropdown_icon_pages"><i class="fa fa-caret-down"></i></span></a>
+                <span class="Nav_links_pages">Pages <span class="Dropdown_icon_pages"><i class="fa fa-caret-down"></i></span></span>
                 <ul class="Dropdown">
                     <li><a href="News.html">News</a></li>
                     <li><a href="Space_gear.html">Space Gear</a></li>
-                    <li><a href="Space_community.html">Space Community</a></li>
+                    <li><a href="SkyHood_family.html">SkyHood Family</a></li>
                     <li><a href="About_us.html">About Us</a></li>
                     <li><a href="Contact_us.html">Contact Us</a></li>
                 </ul>
@@ -59,18 +59,10 @@
         </ul>
     </nav>
 
-    
-
-    <!-- Toggle Dark/Light -->
-     <div class="Right_items">
-
+    <div class="Right_items">
         <div class="Header_login_btn">
             <a href="#" class="SignupLogin_btn">Login</a>
         </div>
-
-        <!-- <button class="Toggle_theme_btn" onclick="toggleTheme()">
-            <img src="../Img/day-and-night.png">
-        </button> -->
 
         <!-- Search Box -->
         <div class="Search_box">
@@ -79,24 +71,38 @@
         </div>
     </div>
 
-    <!-- ****************************************************************** -->
+
+
+    <!-- ******************************************************************** -->
+     <!-- BELOW 768px CONTENT -->
     <!-- Hamburger menu icon (☰) (Visible below 768px) -->
-    <!-- <div class="Menu_icon">☰</div> -->
+    <div class="Menu_icon">☰</div>
 
     <!-- Sidebar menu (Visible below 768px) -->
-    <!-- <div class="Sidebar">
+    <div class="Sidebar">
         <div class="Right_items_sidebar">
-            <button class="Toggle_theme_btn_sidebar" onclick="toggleTheme()">
-                <img src="../Img/day-and-night.png"></button>
-        <span class="Close_icon">✖</span>
+            <div class="Right_items_Header_login_btn">
+                <a href="#" class="SignupLogin_btn">Login</a>
+            </div>
+            <span class="Close_icon">✖</span>
             <ul>
                 <li><a href="index.html"> Home </a></li>
                 <li><a href="Explore.html">Explore</a></li>
-                <li><a href="News.html">News</a></li>
-                <li><a href="#">Learn</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="Learn.html">Learn</a></li>
+                <li class="Pages">
+                    <span class="Right_items_Nav_links_pages">Pages <span class="Dropdown_icon_pages"><i class="fa fa-caret-down"></i></span></span>
+                    <ul class="Dropdown">
+                        <li><a href="News.html">News</a></li>
+                        <li><a href="Space_gear.html">Space Gear</a></li>
+                        <li><a href="SkyHood_family.html">SkyHood Family</a></li>
+                        <li><a href="About_us.html">About Us</a></li>
+                        <li><a href="Contact_us.html">Contact Us</a></li>
+                    </ul>
+                </li>
             </ul>
-    </div> -->
+        </div>
+    </div>
+
 </header>
 
 

@@ -1,0 +1,88 @@
+/* Main Container */
+.ContactUs_container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* Background Effects */
+.ContactUs_background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(15, 32, 62, 0.8) 20%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+/* Floating Particles Animation */
+.ContactUs_particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../Img/Blue_astronaut.jpg') repeat center center/cover;
+    animation: particlesFloat 20s infinite linear;
+}
+
+@keyframes particlesFloat {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10%); }
+}
+
+/* Text Animations */
+.ContactUs_content {
+    max-width: 80%;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.ContactUs_title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out 0.5s forwards;
+}
+
+.ContactUs_message,
+.ContactUs_message_secondary {
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out 1s forwards;
+}
+
+.ContactUs_message_secondary a {
+    color: #FBDC59;
+}
+
+.ContactUs_message_secondary a:hover {
+    color: #ffffff;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .ContactUs_title { font-size: 1.75rem; }
+    .ContactUs_message, .ContactUs_message_secondary { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+    .ContactUs_title { font-size: 1.5rem; }
+    .ContactUs_message, .ContactUs_message_secondary { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    .ContactUs_title { font-size: 1.2rem; }
+    .ContactUs_message, .ContactUs_message_secondary { font-size: 0.8rem; }
+}

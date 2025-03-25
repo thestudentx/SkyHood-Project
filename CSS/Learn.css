@@ -23,7 +23,7 @@
     align-items: center;
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 800px;
     overflow: hidden;
   }
   
@@ -36,7 +36,7 @@
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    opacity: 0.5;
+    opacity: 1;
   }
   
   /* Overlay Content for Learn Page */
@@ -63,7 +63,7 @@
         /* Define keyframes for the glowing border animation */
 @keyframes glowingBorder {
     0% {
-        box-shadow: 0 0 10px #404A7A, 0 0 20px #F2FEFB;
+        box-shadow: 0 0 10px #404A7A, 0 0 20px #82b1a5;
     }
     20% {
         box-shadow: 0 0 10px #1b1614, 0 0 20px #354445;
