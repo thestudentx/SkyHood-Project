@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ******************************************************************************
+//  HEADER HAMBURGER MENU
 document.addEventListener("DOMContentLoaded", function () {
     let menuIcon = document.querySelector(".Menu_icon");
     let closeIcon = document.querySelector(".Close_icon");
@@ -104,95 +105,33 @@ function performSearch() {
 }
 
 
+// ********************************************************************************
+// NEWS SLIDER
+let currentIndex = 0;
+const slides = document.querySelectorAll(".News_article_section");
+const totalSlides = slides.length;
 
-// ****************************************************************************************
-//  NEWS 
-// let newsData = [
-//     {
-//         title: "NASA Discovers a New Exoplanet",
-//         description: "A potentially habitable planet has been found orbiting a distant star...",
-//         link: "News.html"
-//     },
-//     {
-//         title: "SpaceX's New Mars Mission",
-//         description: "Elon Musk's vision for Mars colonization takes a leap forward...",
-//         link: "News.html"
-//     },
-//     {
-//         title: "James Webb Captures Stunning Nebula",
-//         description: "The latest image from the James Webb Telescope reveals breathtaking details...",
-//         link: "News.html"
-//     }
-// ];
-
-document.addEventListener("DOMContentLoaded", function () {
-    // News display function
-    function displayNews() {
-        let container = document.querySelector(".News_section");
-        if (!container) {
-            console.error("Error: .News_section not found!");
-            return;
-        }
-
-        let fragment = document.createDocumentFragment();
-
-        newsData.forEach(news => {
-            let newsItem = document.createElement("div");
-            newsItem.classList.add("News_card"); // Updated to match your existing class
-
-            let title = document.createElement("h3");
-            title.innerText = news.title;
-
-            let date = document.createElement("p");
-            date.classList.add("news-date");
-            date.innerText = news.date;
-
-            newsItem.appendChild(title);
-            newsItem.appendChild(date);
-            fragment.appendChild(newsItem);
-        });
-
-        container.appendChild(fragment);
-    }
-    displayNews();
-
-    // Lazy Scroll Animation (Optimized)
-    const newsCards = document.querySelectorAll(".News_card");
-
-    function revealOnScroll() {
-        let windowHeight = window.innerHeight;
-
-        newsCards.forEach((card) => {
-            let rect = card.getBoundingClientRect();
-            if (rect.top < windowHeight * 0.85) {
-                card.classList.add("Visible");
-            }
-        });
-    }
-
-    let ticking = false;
-    function onScroll() {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                revealOnScroll();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-
-    window.addEventListener("scroll", onScroll);
-    revealOnScroll();
-
-    // Star Animation using JavaScript (Instead of CSS @keyframes)
-    let yPos = 0;
-    function animateStars() {
-        yPos += 0.1; // Adjust speed
-        document.querySelector(".News_section::before").style.transform = `translateY(${yPos}px)`;
-        requestAnimationFrame(animateStars);
-    }
-    requestAnimationFrame(animateStars);
+document.querySelector(".next_slide").addEventListener("click", function() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlide();
 });
+
+document.querySelector(".prev_slide").addEventListener("click", function() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlide();
+});
+
+function updateSlide() {
+    const sliderWrapper = document.querySelector(".News_slider_wrapper");
+    sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Auto-slide every 5 seconds
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlide();
+}, 5000);
+
 
 
 

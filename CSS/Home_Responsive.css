@@ -48,6 +48,28 @@
     .Hero-content_btn {
         font-size: 0.8rem;
     }
+    
+/* ******************************************************************************** */
+/* NEWS */
+
+    .News_title {
+        font-size: 2.5rem;
+    }
+
+        /* .News_cards {
+            flex: 1 1 45%; 
+            Two cards per row
+            max-width: 50%;
+        } */
+
+        .News_article_blog h1 {
+            font-size: 1.3rem;
+        }
+
+        .News_explore_btn {
+            font-size: 0.8rem;
+        }
+
 
 /* ******************************************************************************** */
 /* LEARN */
@@ -100,6 +122,8 @@
     .About_content_btn {
         font-size: 0.8rem;
     }
+
+
 
 
 
@@ -176,6 +200,40 @@
 
 
 /* ******************************************************************************** */
+/* NEWS */
+
+    .News_title {
+        font-size: 2rem;
+    }
+
+    .News_subtitle {
+        font-size: 1.1rem;
+    }
+
+    .News_article_section {
+        flex-wrap: wrap;
+    }
+    
+    .News_cards {
+        flex: 1 1 45%; /* Two cards per row */
+        max-width: 50%;
+        min-width: 187px;
+    }
+
+    .News_article_blog h1 {
+        font-size: 1.1rem;
+    }
+
+    .News_article_blog p {
+        font-size: 0.9rem;
+    }
+
+    .News_explore_btn {
+        font-size: 0.6rem;
+    }
+
+
+/* ******************************************************************************** */
 /* LEARN */
 
     .Learn_section::before {
@@ -246,6 +304,39 @@
 /* ******************************************************************************** */
 /* ******************************************************************************** */
 @media (max-width: 480px) {
+/* ******************************************************************************** */
+/* NEWS */
+
+    .News_title {
+        font-size: 2rem;
+    }
+
+    .News_subtitle {
+        font-size: 1rem;
+    }
+
+    .News_cards {
+        flex: 1 1 100%; /* One article per row */
+        max-width: 100%;
+    }
+
+    .News_article_blog h1 {
+        font-size: 0.9rem;
+    }
+
+    .News_article_blog p {
+        font-size: 0.7rem;
+    }
+
+    .News_article_blog a {
+        font-size: 0.8rem;
+    }
+
+    .News_explore_btn {
+        font-size: 0.6rem;
+    }
+
+
 /* ******************************************************************************** */
 /* ABOUT */
 
