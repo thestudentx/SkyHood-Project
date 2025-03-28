@@ -1,0 +1,200 @@
+* {
+    /* max-width: 100%; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* BODY */
+html body {
+    background-color: black;
+    font-family: 'Orbitron', 'Oxanium', 'Syncopate', 'Exo 2', 'Teko', 'Rajdhani', 'Audiowide', 'Quantico', 'Zen Dots', 'Big Shoulders Stencil Text', sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 50px 0 0 0;
+    overflow-x: hidden;
+}
+
+/* Main Container */
+.Login_container {
+    background: #0B0014;
+    display: flex;
+    width: 100%;
+    height: 700px;
+}
+
+/* Left Side - Login Form */
+.Login_form {
+    font-family: 'Exo 2', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    padding: 40px;
+    color: #ccc;
+}
+
+.Login_form h1 {
+    font-family: 'Big Shoulders Stencil Text', sans-serif; /* For headings */
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.Login_form p {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #FBDC59;
+}
+
+.Input_row {
+    display: flex;
+    gap: 15px;
+}
+
+.Input_group {
+    flex: 1;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.Input_group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.Input_group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.Form_actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.Forgot_password {
+    font-size: 0.9rem;
+    color: white;
+    text-decoration: none;
+}
+
+.Forgot_password:hover {
+    color: #ccc;
+}
+
+.Login_button {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 1rem;
+    font-family: Orbitron, sans-serif;
+    color: white;
+    background: #2D2D66;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Login_button:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.Signup_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.Signup_text p {
+    margin-bottom: 0;
+    color: white;
+}
+
+.Signup_text a {
+    color: #FBDC59;
+    text-decoration: none;
+}
+
+.Signup_text a:hover {
+    color: white;
+}
+
+.Media_container {
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Media_container img {
+    /* width: 100%;
+    height: 100%; */
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+}
+
+/* 🌟 Responsive Design */
+
+/* Screens between 900px & 768px */
+@media (max-width: 900px) {
+    .Login_form h1 {
+        font-size: 2.5rem;
+    }
+    .Login_form p {
+        font-size: 0.9rem;
+    }
+    .Login_button {
+        font-size: 0.8rem;
+    }
+}
+
+/* Screens below 768px */
+@media (max-width: 768px) {
+    .Login_container {
+        flex-direction: column;
+    }
+
+    .Login_form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .Input_row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .Login_media {
+        width: 100%;
+        height: 40vh;
+    }
+
+    .Login_form h1 {
+        font-size: 2rem;
+    }
+
+    .Login_form p {
+        font-size: 0.8rem;
+    }
+
+    .Login_button {
+        font-size: 0.6rem;
+    }
+}

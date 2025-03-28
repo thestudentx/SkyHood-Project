@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en ">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>
-        Learn | SkyHood - Explore Infinity & Beyond
-    </title>
+    <title>Login | SkyHood</title>
     <link rel="stylesheet" href="../CSS/Style.css">
+    <link rel="stylesheet" href="../CSS/Login_page.css">
     <link rel="stylesheet" href="../CSS/Home_Responsive.css">
-    <link rel="stylesheet" href="../CSS/Learn.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Oxanium:wght@400;700&family=Syncopate:wght@400;700&family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
     <script src="../JS/script.js"></script>
+    <script src="../JS/Login_page.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Oxanium:wght@400;700&family=Syncopate:wght@400;700&family=Exo+2:wght@400;700&family=Teko:wght@400;700&family=Rajdhani:wght@400;700&family=Audiowide&family=Quantico:wght@400;700&family=Zen+Dots&family=Big+Shoulders+Stencil+Text:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Family -->
@@ -20,6 +19,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Footer >> Icons -->
+
 
 </head>
 <body>
@@ -64,7 +64,7 @@
 
     <div class="Right_items">
         <div class="Header_login_btn">
-            <a href="Login_page.html" class="SignupLogin_btn">Login</a>
+            <a href="#" class="SignupLogin_btn">Login</a>
         </div>
 
         <!-- Search Box -->
@@ -85,7 +85,7 @@
     <div class="Sidebar">
         <div class="Right_items_sidebar">
             <div class="Right_items_Header_login_btn">
-                <a href="Login_page.html" class="SignupLogin_btn">Login</a>
+                <a href="#" class="SignupLogin_btn">Login</a>
             </div>
             <span class="Close_icon">✖</span>
             <ul>
@@ -113,21 +113,58 @@
 
 <!-- ***************************************************************************** -->
 <!-- ***************************************************************************** -->
-    <!-- Learn Under Development Message -->
+    <!-- LOGIN CONTAINER -->
 <!-- ***************************************************************************** -->
 <!-- ***************************************************************************** -->
-<section class="Learn_underdevelopment_section">
-    <video autoplay muted loop id="Learn_bg_video">
-      <source src="../Videos/Earth_in_blackhole.mp4" type="video/mp4">
-    </video>
-    <div class="Learn_underdevelopment">
-      <h1>Page Under Construction</h1>
-      <p>Welcome, curious mind!</p>
-      <p>Our Learn page is currently being enhanced with stellar insights about astronomy.</p>
-      <p>Stay tuned for an out-of-this-world learning experience!</p>
+    <div class="Login_container">
+        <!-- Left Side - Login Form -->
+        <div class="Login_form">
+            <h1>Welcome Back</h1>
+            <p>Explore the cosmos with us! Log in to continue.</p>
+
+            <form>
+                <div class="Input_row">
+                    <div class="Input_group" id="First_name">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="Enter First Name" required>
+                    </div>
+
+                    <div class="Input_group" id="Last_name">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Enter Last Name" required>
+                    </div>
+                </div>
+
+                <div class="Input_group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter Email" autocomplete="email" required>
+                </div>
+
+                <div class="Input_group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter Password" required>
+                </div>
+
+                <div class="Form_actions">
+                    <a href="#" class="Forgot_password">Forgot your password?</a>
+                    <button type="submit" class="Login_button">Login</button>
+                </div>
+            </form>
+
+            <div class="Signup_text">
+                <p>Don't have an account?</p> 
+                <a href="#">Sign Up</a>
+            </div>
+        </div>
+
+        <!-- Right Side - Image/Video -->
+        <div class="Media_container">
+            <img id="Media_element" src="image1.jpg" alt="Astronomy Image">
+        </div>
     </div>
-</section>
-  
+
+
+
 
 
 
@@ -149,9 +186,9 @@
         </div>
         <ul class="Footer_links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">Explore</a></li>
-            <li><a href="#">Learn</a></li>
-            <li><a href="#">Space Gear</a></li>
+            <li><a href="Explore.html">Explore</a></li>
+            <li><a href="Learn.html">Learn</a></li>
+            <li><a href="Space_gear.html">Space Gear</a></li>
         </ul>
         <div class="Footer_contact">
             <h4>Get In Touch</h4>
@@ -169,16 +206,17 @@
 
 
 
-<!-- ********************************************************************************* -->
-<!-- ********************************************************************************* -->
+<!-- ***************************************************************************** -->
+<!-- ***************************************************************************** -->
 <!-- Scroll to top button -->
-<!-- ********************************************************************************* -->
-<!-- ********************************************************************************* -->
+<!-- ***************************************************************************** -->
+<!-- ***************************************************************************** -->
 <!--  Scroll to top button -->
 <button class="ScrollTop_btn">
     <img src="../Img/vecteezy_rocket-spaceship-clipart-design-illustration_9342727.png" alt="Scroll to Top">
 </button>    
 
-    
+
+
 </body>
 </html>
