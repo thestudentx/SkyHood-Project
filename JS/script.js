@@ -1,5 +1,5 @@
 //  ***********************************************************************
-// Client side JavaScript
+// Client side JavaScript >> Suggestion Box 
 // ***********************************************************************
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById('Suggestion_form');
@@ -45,7 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ******************************************************************************
-//  HEADER HAMBURGER MENU
+// ******************************************************************************
+//  HEADER 
+// ******************************************************************************
+// ******************************************************************************
+
+
+// ******************************************************************************
+// HEADER HAMBURGER MENU
 document.addEventListener("DOMContentLoaded", function () {
     let menuIcon = document.querySelector(".Menu_icon");
     let closeIcon = document.querySelector(".Close_icon");
@@ -70,9 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
-// ****************************************************************************************
+// *********************************************************************************
 //  TOGGLE BUTTON
 function toggleTheme() {
     let theme = document.body.classList.toggle("dark-mode") ? "dark" : "light";
@@ -86,8 +91,7 @@ window.onload =  function() {
 };
 
 
-
-// ****************************************************************************************
+// *********************************************************************************
 //  SEARCH BAR
 function searchFunction() {
     let input = document.getElementById("search").value.toLowerCase();
@@ -105,40 +109,111 @@ function performSearch() {
 }
 
 
-// ********************************************************************************
-// NEWS SLIDER
-let currentIndex = 0;
-const slides = document.querySelectorAll(".News_article_section");
-const totalSlides = slides.length;
 
-document.querySelector(".next_slide").addEventListener("click", function() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlide();
+// ******************************************************************************
+// ******************************************************************************
+//  NEWS  
+// ******************************************************************************
+// *******************************************************************************
+document.addEventListener("DOMContentLoaded", function () {
+  const newsCards = document.querySelectorAll(".News_cards");
+
+  function revealOnScroll() {
+      let windowHeight = window.innerHeight;
+
+      newsCards.forEach((card, index) => {
+          let rect = card.getBoundingClientRect();
+
+          if (rect.top < windowHeight * 0.85) { // 85% of viewport
+              // Add delay for a staggered effect
+              setTimeout(() => {
+                  card.classList.add("Visible");
+              }, index * 200); // Delay each card by 200ms
+          }
+      });
+  }
+
+  // Scroll event for smooth appearance
+  let ticking = false;
+  function onScroll() {
+      if (!ticking) {
+          requestAnimationFrame(() => {
+              revealOnScroll();
+              ticking = false;
+          });
+          ticking = true;
+      }
+  }
+
+  // Initial check and scroll listener
+  window.addEventListener("scroll", onScroll);
+  revealOnScroll();
 });
 
-document.querySelector(".prev_slide").addEventListener("click", function() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateSlide();
+
+
+
+// ******************************************************************************
+// ******************************************************************************
+//  LEARN  
+// ******************************************************************************
+// ******************************************************************************
+document.addEventListener("DOMContentLoaded", function () {
+  const learnContent = document.querySelector(".Learn_content");
+
+  function revealLearnSection() {
+      let rect = learnContent.getBoundingClientRect();
+      let windowHeight = window.innerHeight;
+
+      if (rect.top < windowHeight * 0.85) { // 85% of viewport
+          learnContent.classList.add("Visible");
+      }
+  }
+
+  window.addEventListener("scroll", revealLearnSection);
+  revealLearnSection(); // Run on page load in case it's already in view
 });
 
-function updateSlide() {
-    const sliderWrapper = document.querySelector(".News_slider_wrapper");
-    sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-// Auto-slide every 5 seconds
-setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlide();
-}, 5000);
 
 
 
 
+// ******************************************************************************
+// ******************************************************************************
+//  SKYHOOD FAMILY 
+// ******************************************************************************
+// ******************************************************************************
+document.addEventListener("DOMContentLoaded", function () {
+  const growCards = document.querySelectorAll(".Grow_card");
 
-// ****************************************************************************************
-//  Contact Us Form Validation
-// ****************************************************************************************
+  function revealGrowCards() {
+      growCards.forEach((card) => {
+          let rect = card.getBoundingClientRect();
+          let windowHeight = window.innerHeight;
+
+          if (rect.top < windowHeight * 0.85) { // 85% of viewport
+              card.classList.add("Visible");
+          }
+      });
+  }
+
+  window.addEventListener("scroll", revealGrowCards);
+  revealGrowCards(); // Run on page load in case they are already in view
+});
+
+
+
+
+
+
+
+
+
+// ******************************************************************************
+// ******************************************************************************
+//  CONTACT US FORM VALIDATION 
+// ******************************************************************************
+// ******************************************************************************
 // document.querySelector(".Contact_form").addEventListener("submit", function(event) {
 //     let name = document.querySelector(".Contact_input[name='name']").value;
 //     let email = document.querySelector(".Contact_input[name='email']").value;
@@ -152,107 +227,70 @@ setInterval(() => {
 
 
 
-// ****************************************************************************************
-//  SUGGESTION BOX
-// ***************************************************************************************
-// document.getElementById('Suggestion_form').addEventListener('submit', async function (e) {
-//     e.preventDefault();
-  
-//     const formData = new FormData(e.target);
-//     const suggestion = formData.get('suggestion');
-//     const email = formData.get('email');
-//     const submissionType = formData.get('submissionType');
-    
-//     const data = {
-//       suggestion,
-//       email: submissionType === 'anonymous' ? null : email,
-//       anonymous: submissionType === 'anonymous'
-//     };
-  
-//     try {
-//       const res = await fetch('/api/suggestion', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify(data)
-//       });
-//       const result = await res.json();
-//       if (res.ok) {
-//         alert('Suggestion submitted successfully!');
-//         e.target.reset();
-//       } else {
-//         alert(`Error: ${result.message}`);
-//       }
-//     } catch (error) {
-//       console.error(error);
-//       alert('An error occurred while submitting your suggestion.');
-//     }
-//   });
-  
+// ******************************************************************************
+// ******************************************************************************
+//  SUGGESTION BOX  
+// ******************************************************************************
+// ******************************************************************************
+document.addEventListener('DOMContentLoaded', function () {
+  const suggestionForm = document.getElementById('Suggestion_form');
+  const suggestionInput = suggestionForm.querySelector('textarea[name="suggestion"]');
+  const emailInput = suggestionForm.querySelector('input[name="email"]');
 
+  // Limit suggestion box to 500 characters
+  suggestionInput.addEventListener('input', function () {
+      if (this.value.length > 500) {
+          this.value = this.value.substring(0, 500);
+      }
+  });
 
+  // Validate email (case-sensitive)
+  emailInput.addEventListener('input', function () {
+      const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (this.value && !emailRegex.test(this.value)) {
+          this.setCustomValidity("Enter a valid email (case-sensitive)");
+      } else {
+          this.setCustomValidity("");
+      }
+  });
 
+  // Handle form submission
+  suggestionForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
 
+      const formData = new FormData(e.target);
+      const suggestion = formData.get('suggestion');
+      const email = formData.get('email');
+      const submissionType = formData.get('submissionType');
 
+      const data = {
+          suggestion,
+          email: submissionType === 'anonymous' ? null : email,
+          anonymous: submissionType === 'anonymous'
+      };
 
-//  Scroll to top button
-document.addEventListener("DOMContentLoaded", function () {
-    let scrollBtn = document.querySelector(".ScrollTop_btn");
-
-    if (!scrollBtn) {
-        console.error("Error: ScrollTop_btn not found in HTML!");
-        return;
-    }
-
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > window.innerHeight) { 
-            scrollBtn.classList.add("Show_ScrollTop");
-        } else {
-            scrollBtn.classList.remove("Show_ScrollTop");
-        }
-    });
-
-    scrollBtn.addEventListener("click", function () {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+      try {
+          const res = await fetch('/api/suggestion', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+          });
+          const result = await res.json();
+          if (res.ok) {
+              alert('Suggestion submitted successfully!');
+              e.target.reset();
+          } else {
+              alert(`Error: ${result.message}`);
+          }
+      } catch (error) {
+          console.error(error);
+          alert('An error occurred while submitting your suggestion.');
+      }
+  });
 });
 
 
-// ************************************************************************************
-//  Footer & Header Background Objects Animation
-document.addEventListener("DOMContentLoaded", function () {
-  function createSpaceObjects(container, totalStars) {
-      const colors = ["#0FFF", "#333", "#FBDC59", "#9EA2FF", "#2D2D66"];
-
-      function createStar() {
-          let obj = document.createElement("div");
-          obj.classList.add("space_object", "star");
-
-          let size = Math.random() * 6 + 4;
-          obj.style.width = `${size}px`;
-          obj.style.height = `${size}px`;
-          obj.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-          obj.style.clipPath = "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)";
-
-          obj.style.left = `${Math.random() * 100}%`;
-          obj.style.top = `${Math.random() * 100}%`;
-
-          obj.style.animationDuration = `${Math.random() * 20 + 15}s`;
-          obj.style.animationDelay = `${Math.random() * 5}s`;
-
-          obj.style.setProperty('--dirX', Math.random() > 0.5 ? 1 : -1);
-          obj.style.setProperty('--dirY', Math.random() > 0.5 ? 1 : -1);
-
-          container.appendChild(obj);
-      }
-
-      for (let i = 0; i < totalStars; i++) {
-          createStar();
-      }
-  }
-
-  createSpaceObjects(document.querySelector(".Header_space_objects"), 50); // Header: 50 Stars
-  createSpaceObjects(document.querySelector(".Footer_space_objects"), 80); // Footer: 80 Stars
-});
+  
 
 
 
@@ -334,4 +372,77 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("scroll", revealMission);
     revealMission(); // Check on page load
   });
-  
+
+
+
+
+
+// ******************************************************************************
+// ******************************************************************************
+//  Footer & Header Background Objects Animation
+// ******************************************************************************
+// ******************************************************************************
+document.addEventListener("DOMContentLoaded", function () {
+  function createSpaceObjects(container, totalStars) {
+      const colors = ["#0FFF", "#333", "#FBDC59", "#9EA2FF", "#2D2D66"];
+
+      function createStar() {
+          let obj = document.createElement("div");
+          obj.classList.add("space_object", "star");
+
+          let size = Math.random() * 6 + 4;
+          obj.style.width = `${size}px`;
+          obj.style.height = `${size}px`;
+          obj.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          obj.style.clipPath = "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)";
+
+          obj.style.left = `${Math.random() * 100}%`;
+          obj.style.top = `${Math.random() * 100}%`;
+
+          obj.style.animationDuration = `${Math.random() * 20 + 15}s`;
+          obj.style.animationDelay = `${Math.random() * 5}s`;
+
+          obj.style.setProperty('--dirX', Math.random() > 0.5 ? 1 : -1);
+          obj.style.setProperty('--dirY', Math.random() > 0.5 ? 1 : -1);
+
+          container.appendChild(obj);
+      }
+
+      for (let i = 0; i < totalStars; i++) {
+          createStar();
+      }
+  }
+
+  createSpaceObjects(document.querySelector(".Header_space_objects"), 50); // Header: 50 Stars
+  createSpaceObjects(document.querySelector(".Footer_space_objects"), 80); // Footer: 80 Stars
+});
+
+
+
+
+
+// ******************************************************************************
+// ******************************************************************************
+//  SCROLL TO TOP BUTTON 
+// ******************************************************************************
+// ******************************************************************************
+document.addEventListener("DOMContentLoaded", function () {
+  let scrollBtn = document.querySelector(".ScrollTop_btn");
+
+  if (!scrollBtn) {
+      console.error("Error: ScrollTop_btn not found in HTML!");
+      return;
+  }
+
+  window.addEventListener("scroll", function () {
+      if (window.scrollY > window.innerHeight) { 
+          scrollBtn.classList.add("Show_ScrollTop");
+      } else {
+          scrollBtn.classList.remove("Show_ScrollTop");
+      }
+  });
+
+  scrollBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});

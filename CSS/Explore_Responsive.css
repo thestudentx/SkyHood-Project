@@ -1,0 +1,25 @@
+@media (max-width: 768px) {
+    .Explore_underdevelopment {
+        width: 70%;
+    }
+
+    .Explore_underdevelopment h1 {
+        font-size: 2rem;
+    }
+
+    .Explore_underdevelopment p {
+        font-size: 0.9rem;
+    }
+
+
+
+
+/* CLOSING 768px */
+}
+
+
+@media (max-width: 480px) {
+    .Explore_underdevelopment h1 {
+        font-size: 1.5rem;
+    }
+}
